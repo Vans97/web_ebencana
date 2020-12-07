@@ -45,7 +45,7 @@
                             <div class="col-md-6">
                                 <select id="kumpulan" name="kumpulan" class="form-control @error('kumpulan') is-invalid @enderror" required>
                                     @foreach($roles as $role)
-                                    <option value="{{ $role->id }}">{{ $role->nama }}</option>
+                                    <option value="{{ $role->kod }}">{{ $role->nama }}</option>
                                     @endforeach
                                 </select>
                                 @error('kumpulan')
