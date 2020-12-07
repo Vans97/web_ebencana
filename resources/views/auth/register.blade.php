@@ -43,8 +43,11 @@
                             <label for="kumpulan" class="col-md-4 col-form-label text-md-right">{{ __('Kumpulan Pengguna') }}</label>
 
                             <div class="col-md-6">
-                                <input id="kumpulan" type="text" class="form-control @error('kumpulan') is-invalid @enderror" name="kumpulan" value="{{ old('kumpulan') }}" required autocomplete="kumpulan" autofocus>
-
+                                <select id="kumpulan" name="kumpulan" class="form-control @error('kumpulan') is-invalid @enderror" required>
+                                    @foreach($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->nama }}</option>
+                                    @endforeach
+                                </select>
                                 @error('kumpulan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
