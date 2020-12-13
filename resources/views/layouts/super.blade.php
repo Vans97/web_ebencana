@@ -97,7 +97,7 @@
     <a href="/home" class="brand-link">
       <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" -->
            <!-- style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light" >eBencana</span>
     </a>
 
     <!-- Sidebar -->
@@ -108,7 +108,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div> -->
         <div class="info">
-          <a href="/home" class="d-block">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;{{ Auth::user()->name }}</a>
+          <a href="/profile" class="d-block">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;{{ Auth::user()->namaP }}</a>
         </div>
       </div>
 
@@ -145,7 +145,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/akses/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                   &nbsp;&nbsp;&nbsp;<p>Akses Sekuriti</p>
                 </a>
