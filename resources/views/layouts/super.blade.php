@@ -162,25 +162,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="/jajahan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Jajahan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="/daerah/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Daerah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="/agensi/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Agensi/Jabatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="/pkob/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus PKOB</p>
                 </a>

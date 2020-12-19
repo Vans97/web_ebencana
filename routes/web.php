@@ -24,4 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('role','RoleController');
 Route::resource('profile','ProfileController');
 Route::resource('akses','AksesController');
+Route::resource('jajahan','JajahanController');
+Route::resource('daerah','DaerahController');
+Route::resource('agensi','AgensiController');
+Route::resource('pkob','PkobController');
+
 
