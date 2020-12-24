@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Jajahan;
-use App\User;
 
-class JajahanController extends Controller
+use App\Pkob;
+
+class PkobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,8 +26,8 @@ class JajahanController extends Controller
      */
     public function create()
     {
-        $jajahan = Jajahan::all();
-        return view ('jajahan.create');
+        $pkob = Pkob::all();
+        return view ('pkob.create');
     }
 
     /**
@@ -42,22 +42,22 @@ class JajahanController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-            'keterangan'=>'required',
+           
            
            
         ]);
 
-        $jajahan = new Jajahan();
-        $jajahan->kod = $request->input('kod');
-        $jajahan->nama = $request->input('nama');
-        $jajahan->keterangan = $request->input('keterangan');
+        $pkob = new Pkob();
+        $pkob->kod = $request->input('kod');
+        $pkob->nama = $request->input('nama');
+       
       
-        $jajahan->user_id =auth()->user()->id;
-        $jajahan->save();
+        $pkob->user_id =auth()->user()->id;
+        $pkob->save();
 
        
        
-        return redirect('jajahan/show')->with('success','Data Telah Dimasukkan');
+        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -68,14 +68,10 @@ class JajahanController extends Controller
      */
     public function show($id)
     {
-        // $jajahans = Jajahan::all();
-        // return view ('jajahan.show',['jajahans'=>$jajahans]);
-
-        $jajahans = DB::table('jajahan')->select(DB::raw('jajahan.id, jajahan.kod, jajahan.nama, jajahan.keterangan, jajahan.updated_at, users.name'))
-            ->leftJoin('users', 'users.id', '=', 'jajahan.user_id')
-            ->get();
-        return view ('jajahan.show')->with('jajahans', $jajahans);
-
+        $pkobs = DB::table('pkob')->select(DB::raw('pkob.id, pkob.kod, pkob.nama, pkob.updated_at, users.name'))
+        ->leftJoin('users', 'users.id', '=', 'pkob.user_id')
+        ->get();
+        return view ('pkob.show',['pkobs'=>$pkobs]);
     }
 
     /**
@@ -86,11 +82,11 @@ class JajahanController extends Controller
      */
     public function edit($id)
     {
-        $jajahan = Jajahan::find($id);
+        $pkob = Pkob::find($id);
         // if(auth()->user()->id !== $jajahan->user_id){
         //     return redirect('calendar')->with('error','Unauthorized Page');
         // }
-        return view ('jajahan.edit')->with('jajahan',$jajahan);
+        return view ('pkob.edit')->with('pkob',$pkob);
     }
 
     /**
@@ -106,22 +102,22 @@ class JajahanController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-            'keterangan'=>'required',
+           
            
            
         ]);
 
-        $jajahan = Jajahan::find($id);
-        $jajahan->kod = $request->input('kod');
-        $jajahan->nama = $request->input('nama');
-        $jajahan->keterangan = $request->input('keterangan');
+        $pkob = Pkob::find($id);
+        $pkob->kod = $request->input('kod');
+        $pkob->nama = $request->input('nama');
+      
       
         // $jajahan->user_id =auth()->user()->id;
-        $jajahan->save();
+        $pkob->save();
 
        
        
-        return redirect('jajahan/show')->with('success','Data Telah Dimasukkan');
+        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**

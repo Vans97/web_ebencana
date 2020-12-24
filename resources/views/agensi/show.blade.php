@@ -38,6 +38,8 @@
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Kemaskini oleh</th>
+                            <th scope="col">Kemaskini pada</th>
                            
                           </tr>
                         </thead>
@@ -48,6 +50,8 @@
                               <td><a href="/agensi/{{$agensi->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$agensi->kod}}</td>
                               <td>{{$agensi->nama}}</td>
+                              <td>{{$agensi->name}}</td>
+                              <td>{{$agensi->updated_at}}</td>
                         @endforeach
                              
                           </tr>

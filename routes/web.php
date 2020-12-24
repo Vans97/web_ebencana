@@ -28,5 +28,11 @@ Route::resource('jajahan','JajahanController');
 Route::resource('daerah','DaerahController');
 Route::resource('agensi','AgensiController');
 Route::resource('pkob','PkobController');
+Route::resource('aset','AsetController');
+Route::resource('kelengkapanagensi','KelengkapanAgensiController');
+Route::resource('helikopter','HelikopterController');
+Route::resource('agihan','AgihanController');
+Route::resource('barang','BarangController');
+Route::resource('kemasukkan','KemasukkanController');
 
 

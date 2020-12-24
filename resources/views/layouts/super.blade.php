@@ -186,13 +186,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                <a href="/aset/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Aset & Kelengkapan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                <a href="/kelengkapanagensi/create" class="nav-link">
+                &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
+                &nbsp;&nbsp;&nbsp;<p>Kelengkapan Agensi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/helikopter/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Tapak Helikopter</p>
                 </a>
@@ -209,19 +215,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
-                &nbsp;&nbsp;&nbsp;<p>Urus Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="/agihan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Jenis Barang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="/barang/create" class="nav-link">
+                &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
+                &nbsp;&nbsp;&nbsp;<p>Urus Barang</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/kemasukkan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemasukkan Stok Barang</p>
                 </a>

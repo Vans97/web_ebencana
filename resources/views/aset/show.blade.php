@@ -9,19 +9,19 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Definasi PKOB</h3>
+            <h3 class="card-title">Definasi Aset & Kelengkapan</h3>
           </div>
 
-          <form role="form" method="POST" action="{{action('PkobController@store')}}">
+          <form role="form" method="POST" action="{{action('AsetController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
               <div class="form-group">
-                <label for="">Kod PKOB</label>
+                <label for="">Kod Aset</label>
                 <input type="text" class="form-control" name="kod"/>
               </div>
 
               <div class="form-group">
-                <label for="">Nama PKOB</label>
+                <label for="">Nama Aset</label>
                 <input type="text" class="form-control" name="nama"/>
               </div>
 
@@ -46,13 +46,13 @@
                         </thead>
                       
                         <tbody>
-                         @foreach($pkobs as $pkob)
+                         @foreach($asets as $aset)
                           <tr>
-                              <td><a href="/pkob/{{$pkob->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$pkob->kod}}</td>
-                              <td>{{$pkob->nama}}</td>
-                              <td>{{$pkob->name}}</td>
-                              <td>{{$pkob->updated_at}}</td>
+                              <td><a href="/aset/{{$aset->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td>{{$aset->kod}}</td>
+                              <td>{{$aset->nama}}</td>
+                              <td>{{$aset->name}}</td>
+                              <td>{{$aset->updated_at}}</td>
                         @endforeach
                              
                           </tr>

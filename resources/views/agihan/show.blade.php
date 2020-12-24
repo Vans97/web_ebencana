@@ -9,20 +9,25 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Definasi PKOB</h3>
+            <h3 class="card-title">Definasi Jenis Barang</h3>
           </div>
 
-          <form role="form" method="POST" action="{{action('PkobController@store')}}">
+          <form role="form" method="POST" action="{{action('AgihanController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
               <div class="form-group">
-                <label for="">Kod PKOB</label>
+                <label for="">Kod Jenis Barang</label>
                 <input type="text" class="form-control" name="kod"/>
               </div>
 
               <div class="form-group">
-                <label for="">Nama PKOB</label>
+                <label for="">Nama Jenis Barang</label>
                 <input type="text" class="form-control" name="nama"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">keterangan</label>
+                <input type="text" class="form-control" name="keterangan"/>
               </div>
 
                        
@@ -39,20 +44,20 @@
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Kemaskini oleh</th>
-                            <th scope="col">Kemaskini pada</th>
+                            <th scope="col">kemas oleh</th>
+                            <th scope="col">kemakini pada</th>
                            
                           </tr>
                         </thead>
                       
                         <tbody>
-                         @foreach($pkobs as $pkob)
+                         @foreach($agihans as $agihan)
                           <tr>
-                              <td><a href="/pkob/{{$pkob->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$pkob->kod}}</td>
-                              <td>{{$pkob->nama}}</td>
-                              <td>{{$pkob->name}}</td>
-                              <td>{{$pkob->updated_at}}</td>
+                              <td><a href="/agihan/{{$agihan->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td>{{$agihan->kod}}</td>
+                              <td>{{$agihan->nama}}</td>
+                              <td>{{$agihan->name}}</td>
+                              <td>{{$agihan->updated_at}}</td>
                         @endforeach
                              
                           </tr>

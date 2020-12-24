@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pkob;
+use App\Daerah;
+use App\Jajahan;
+use Illuminate\Support\Facades\DB;
 
-class PkobController extends Controller
+
+class DaerahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +27,8 @@ class PkobController extends Controller
      */
     public function create()
     {
-        $pkob = Pkob::all();
-        return view ('pkob.create');
+        $daerah = Jajahan::all();
+        return view ('daerah.create',['daerah'=>$daerah]);
     }
 
     /**
@@ -40,22 +43,22 @@ class PkobController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-           
+            'djajahan'=>'required',
            
            
         ]);
 
-        $pkob = new Pkob();
-        $pkob->kod = $request->input('kod');
-        $pkob->nama = $request->input('nama');
-       
+        $daerah = new Daerah();
+        $daerah->kod = $request->input('kod');
+        $daerah->nama = $request->input('nama');
+        $daerah->djajahan = $request->input('djajahan');
       
-        // $jajahan->user_id =auth()->user()->id;
-        $pkob->save();
+        $daerah->user_id =auth()->user()->id;
+        $daerah->save();
 
        
        
-        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
+        return redirect('daerah/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -66,8 +69,12 @@ class PkobController extends Controller
      */
     public function show($id)
     {
-        $pkobs = Pkob::all();
-        return view ('pkob.show',['pkobs'=>$pkobs]);
+        // $daerahs = Daerah::all();
+        $daerahs = DB::table('daerah')->select(DB::raw('daerah.id, daerah.kod, daerah.nama, daerah.djajahan, daerah.updated_at, users.name'))
+        ->leftJoin('users', 'users.id', '=', 'daerah.user_id')
+        ->get();
+        $daerahj = Jajahan::all();
+        return view ('daerah.show',['daerahs'=>$daerahs, 'daerahj'=>$daerahj]);
     }
 
     /**
@@ -78,11 +85,8 @@ class PkobController extends Controller
      */
     public function edit($id)
     {
-        $pkob = Pkob::find($id);
-        // if(auth()->user()->id !== $jajahan->user_id){
-        //     return redirect('calendar')->with('error','Unauthorized Page');
-        // }
-        return view ('pkob.edit')->with('pkob',$pkob);
+        $daerah = Daerah::find($id);
+        return view ('daerah.edit')->with('daerah',$daerah);
     }
 
     /**
@@ -98,22 +102,22 @@ class PkobController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-           
+            'djajahan'=>'required',
            
            
         ]);
 
-        $pkob = Pkob::find($id);
-        $pkob->kod = $request->input('kod');
-        $pkob->nama = $request->input('nama');
-      
+        $daerah = Daerah::find($id);
+        $daerah->kod = $request->input('kod');
+        $daerah->nama = $request->input('nama');
+        $daerah->djajahan = $request->input('djajahan');
       
         // $jajahan->user_id =auth()->user()->id;
-        $pkob->save();
+        $daerah->save();
 
        
        
-        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
+        return redirect('daerah/show')->with('success','Data Telah Dikemaskini');
     }
 
     /**

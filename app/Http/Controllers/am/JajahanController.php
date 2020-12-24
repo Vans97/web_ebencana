@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Agensi;
+use Illuminate\Support\Facades\DB;
+use App\Jajahan;
+use App\User;
 
-class AgensiController extends Controller
+class JajahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +26,8 @@ class AgensiController extends Controller
      */
     public function create()
     {
-        $agensi = Agensi::all();
-        return view ('agensi.create');
+        $jajahan = Jajahan::all();
+        return view ('jajahan.create');
     }
 
     /**
@@ -40,22 +42,22 @@ class AgensiController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-            
+            'keterangan'=>'required',
            
            
         ]);
 
-        $agensi = new Agensi();
-        $agensi->kod = $request->input('kod');
-        $agensi->nama = $request->input('nama');
+        $jajahan = new Jajahan();
+        $jajahan->kod = $request->input('kod');
+        $jajahan->nama = $request->input('nama');
+        $jajahan->keterangan = $request->input('keterangan');
       
-      
-        // $agensi->user_id =auth()->user()->id;
-        $agensi->save();
+        $jajahan->user_id =auth()->user()->id;
+        $jajahan->save();
 
        
        
-        return redirect('agensi/show')->with('success','Data Telah Dimasukkan');
+        return redirect('jajahan/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -66,8 +68,14 @@ class AgensiController extends Controller
      */
     public function show($id)
     {
-        $agensis = Agensi::all();
-        return view ('agensi.show',['agensis'=>$agensis]);
+        // $jajahans = Jajahan::all();
+        // return view ('jajahan.show',['jajahans'=>$jajahans]);
+
+        $jajahans = DB::table('jajahan')->select(DB::raw('jajahan.id, jajahan.kod, jajahan.nama, jajahan.keterangan, jajahan.updated_at, users.name'))
+            ->leftJoin('users', 'users.id', '=', 'jajahan.user_id')
+            ->get();
+        return view ('jajahan.show')->with('jajahans', $jajahans);
+
     }
 
     /**
@@ -78,11 +86,11 @@ class AgensiController extends Controller
      */
     public function edit($id)
     {
-        $agensi = Agensi::find($id);
+        $jajahan = Jajahan::find($id);
         // if(auth()->user()->id !== $jajahan->user_id){
         //     return redirect('calendar')->with('error','Unauthorized Page');
         // }
-        return view ('agensi.edit')->with('agensi',$agensi);
+        return view ('jajahan.edit')->with('jajahan',$jajahan);
     }
 
     /**
@@ -98,22 +106,22 @@ class AgensiController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-           
+            'keterangan'=>'required',
            
            
         ]);
 
-        $agensi = Agensi::find($id);
-        $agensi->kod = $request->input('kod');
-        $agensi->nama = $request->input('nama');
-       
+        $jajahan = Jajahan::find($id);
+        $jajahan->kod = $request->input('kod');
+        $jajahan->nama = $request->input('nama');
+        $jajahan->keterangan = $request->input('keterangan');
       
         // $jajahan->user_id =auth()->user()->id;
-        $agensi->save();
+        $jajahan->save();
 
        
        
-        return redirect('agensi/show')->with('success','Data Telah Dimasukkan');
+        return redirect('jajahan/show')->with('success','Data Telah DiKemaskini');
     }
 
     /**

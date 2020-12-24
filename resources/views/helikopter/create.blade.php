@@ -13,35 +13,40 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form role="form" method="POST" action="{{action('DaerahController@store')}}">
+          <form role="form" method="POST" action="{{action('HelikopterController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
-
-            @foreach($daerah as $daerahs)
-            
-            <input type="hidden" id="kod" value="{{ $daerahs->kod }} " />
-            @endforeach
 
 
               <div class="form-group">
                   
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
-              <select id="djajahan" name="djajahan" class="form-control @error('djajahan') is-invalid @enderror" onchange="bindKod()" required>
-                         @foreach($daerah as $daerahs)
-                        <option value="{{ $daerahs->nama }}">{{ $daerahs->nama }}</option>
+              <select id="hjajahan" name="hjajahan" class="form-control @error('hjajahan') is-invalid @enderror" required>
+                         @foreach($helikopters as $helikopter)
+                        <option value="{{ $helikopter->nama }}">{{ $helikopter->nama }}</option>
                          @endforeach
               </select>
 
               </div>
 
               <div class="form-group">
-                <label for="">Kod Daerah</label>
-                <input type="text" class="form-control" name="kod" />
+                <label for="">Lokasi</label>
+                <input type="text" class="form-control" name="lokasi" />
               </div>
 
               <div class="form-group">
-                <label for="">Nama Daerah</label>
-                <input type="text" class="form-control" name="nama"/>
+                <label for="">Latitude</label>
+                <input type="text" class="form-control" name="latitude"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Longitude</label>
+                <input type="text" class="form-control" name="longitude"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Nota</label>
+                <input type="text" class="form-control" name="nota"/>
               </div>
 
                        
@@ -50,17 +55,12 @@
             </div>
           </form>
 
-          <a href="/daerah/show" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
+          <a href="/helikopter/show" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
 
         </div>
       </div>
     </div>
 </div>
-<script>
-  function bindKod(){
-    var x = document.getElementById("kod").value;
-    document.querySelector("input[name='kod']").value = x;
-  }
-</script>
+
 
 @endsection
