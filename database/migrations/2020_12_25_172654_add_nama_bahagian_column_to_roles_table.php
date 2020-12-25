@@ -19,33 +19,6 @@ class AddNamaBahagianColumnToRolesTable extends Migration
             $table->string('nama')->after('name');
             $table->string('bahagian')->after('nama');
         });
-
-        DB::table('roles')->insert([
-            [
-                'name'       => 'a_magroup',
-                'nama'       => 'Group Pengguna',
-                'bahagian'   => 'Keselamatan',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name'       => 'a_mauser',
-                'nama'       => 'Akaun Pengguna',
-                'bahagian'   => 'Keselamatan',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name'       => 'a_maaccess',
-                'nama'       => 'Akses Pengguna',
-                'bahagian'   => 'Keselamatan',
-                'guard_name' => 'web',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]
-        ]);
     }
 
     /**
