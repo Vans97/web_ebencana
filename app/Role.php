@@ -2,15 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role as ModelsRole;
 
-class Role extends Model
+class Role extends ModelsRole
 {
     protected $table = 'roles';
-    public $primaryKey = 'id';
-    public $timestamps = true;
 
-    public function user(){
-        return $this->hasMany('App\User');
+    public function roleHasPermissions() {
+        $this->hasMany(Permission::class, 'id', 'role_id');
     }
 }

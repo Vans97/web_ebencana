@@ -28,14 +28,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div> 
+                            </div>
                             <div class="form-group row mb-0">
                              <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Cari') }}
                                 </button>
                             </div>
-                            
+
                             </div>
                             <br><br><br>
 
@@ -45,12 +45,12 @@
                                 <th colspan="3" style ="text-align: center">Form</th>
                                 <th colspan="5" style ="text-align: center">Rekod</th>
                                 </tr>
-                                
+
                                 <tr>
                                 <th scope="col">Bahagian</th>
                                 <th scope="col">Kod</th>
                                 <th scope="col">Nama</th>
-                                
+
                                 <th scope="col">Buka</th>
                                 <th scope="col">Cari</th>
                                 <th scope="col">Baru</th>
@@ -819,15 +819,15 @@
 
 
 
-                                
 
-                                
-                            
+
+
+
                             </thead>
                             </table>
-                            
 
-                            
+
+
                     </form>
                 </div>
             </div>
