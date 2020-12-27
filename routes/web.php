@@ -20,19 +20,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('role','RoleController');
-Route::resource('profile','ProfileController');
-Route::resource('akses','AksesController');
-Route::resource('jajahan','JajahanController');
-Route::resource('daerah','DaerahController');
-Route::resource('agensi','AgensiController');
-Route::resource('pkob','PkobController');
-Route::resource('aset','AsetController');
-Route::resource('kelengkapanagensi','KelengkapanAgensiController');
-Route::resource('helikopter','HelikopterController');
-Route::resource('agihan','AgihanController');
-Route::resource('barang','BarangController');
-Route::resource('kemasukkan','KemasukkanController');
-
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('role','RoleController');
+    Route::resource('profile','ProfileController');
+    Route::resource('akses','AksesController');
+    Route::resource('jajahan','JajahanController');
+    Route::resource('daerah','DaerahController');
+    Route::resource('agensi','AgensiController');
+    Route::resource('pkob','PkobController');
+    Route::resource('aset','AsetController');
+    Route::resource('kelengkapanagensi','KelengkapanAgensiController');
+    Route::resource('helikopter','HelikopterController');
+    Route::resource('agihan','AgihanController');
+    Route::resource('barang','BarangController');
+    Route::resource('kemasukkan','KemasukkanController');
+});

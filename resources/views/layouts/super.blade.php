@@ -87,7 +87,7 @@
                     </ul>
 
     <!-- Right navbar links -->
-    
+
   </nav>
   <!-- /.navbar -->
 
@@ -132,18 +132,22 @@
                &nbsp;&nbsp;&nbsp;<p>Kumpulan Pengguna</p>
                 </a>
               </li> -->
+              @can('a_magroup_view')
                <li class="nav-item">
                 <a href="/role/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                   &nbsp;&nbsp;&nbsp;<p>Kumpulan Pengguna</p>
                 </a>
               </li>
+              @endcan
+              @can('a_mauser_view')
               <li class="nav-item">
                 <a href="/register" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                   &nbsp;&nbsp;&nbsp;<p>Akaun Pengguna</p>
                 </a>
               </li>
+              @endcan
               <li class="nav-item">
                 <a href="/akses/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
@@ -312,7 +316,7 @@
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Urus Lokasi Jalan Tutup</p>
                 </a>
-              </li> 
+              </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
@@ -324,31 +328,31 @@
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Pengesahan Data Stok</p>
                 </a>
-              </li>  
+              </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Laporan Jalan Tutup</p>
                 </a>
-              </li>  
+              </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemaskini Data Jalan Tutup</p>
                 </a>
-              </li>  
+              </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Pengesahan Kemaskini</p>
                 </a>
-              </li>  
+              </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Laporan Kemaskini</p>
                 </a>
-              </li> 
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -648,13 +652,13 @@
     <!-- /.sidebar -->
   </aside>
 
-  
+
   <div class="content-wrapper">
-   
-     
+
+
       @include('inc.message')
-      @yield('content')  
-  
+      @yield('content')
+
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

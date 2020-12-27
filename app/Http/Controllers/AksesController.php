@@ -31,10 +31,16 @@ class AksesController extends Controller
      */
     public function create()
     {
+        dump(auth()->user()->can('a_magroup_update'));
+        dump(auth()->user()->hasAnyPermission(['a_magroup_update']));
         // $user = User::find(Auth::user()->id);
         $users = User::with('ModelHasRole', 'ModelHasPermission', 'ModelHasRole.roles', 'ModelHasPermission.permissions')
             ->where('id', Auth::user()->id)
             ->first();
+
+        dump($users->can('a_magroup_update'));
+        dump($users->hasPermissionTo('a_magroup_update'));
+        // dd($users->hasDirectPermission('a_magroup_update'));
 
         // dd($users);
 
@@ -44,16 +50,26 @@ class AksesController extends Controller
         // $user->assignRole('a_magroup', 'a_mauser');
         // $users->givePermissionTo('a_magroup_create');
 
-        // $role = Role::findByName('a_maaccess');
-        // $role->givePermissionTo('a_maaccess_view');
+        // $role = Role::findByName('a_magroup');
+        // $role->givePermissionTo('a_magroup_view');
         // $role->givePermissionTo('a_maaccess_search');
         // $role->givePermissionTo('a_maaccess_create');
         // $role->givePermissionTo('a_maaccess_update');
         // $role->givePermissionTo('a_maaccess_delete');
+        // $role->revokePermissionTo('a_magroup_view');
 
         // die;
 
         // dd($user);
+        $roles = Role::get();
+
+        foreach ($roles as $role) {
+            //
+        }
+
+        dd($roles);
+
+        //==========================================
         $roles = Role::with('permissions')->get();
         // dd($roles);
 

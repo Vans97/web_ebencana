@@ -64,7 +64,7 @@
                                     <td text-align="left">{{ $access->data->kod }}</td>
                                     <td text-align="left">{{ $access->data->nama }}</td>
                                     @foreach ($access->permission as $permission)
-                                        <td text-align="center"><input type="checkbox" name="{{ $permission->permission_name }}" {{ $permission->is_active ? 'checked' : ''}}></td>
+                                        <td text-align="center"><input type="checkbox" name="{{ $permission->permission_name }}" {{ $permission->is_active ? 'checked' : ''}}>{{ $permission->permission_name }}</td>
                                     @endforeach
                                 </tr>
                                 @endforeach

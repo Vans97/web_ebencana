@@ -2,9 +2,7 @@
 
 namespace App;
 
-use Spatie\Permission\Models\Role as ModelsRole;
-
-class Role extends ModelsRole
+class Role extends \Spatie\Permission\Models\Role
 {
     protected $table = 'roles';
 
