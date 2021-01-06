@@ -207,6 +207,13 @@
                 &nbsp;&nbsp;&nbsp;<p>Tapak Helikopter</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="/tenagapkob/create" class="nav-link">
+                &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
+                &nbsp;&nbsp;&nbsp;<p>Tenaga Kerja PKOB</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -271,25 +278,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/kemalangan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Jenis Kemalangan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/kemalangankemasukkan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemasukkan Kes Kemalangan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/kemalanganpengesahan/show" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Pengesahan Kes Kemalangan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="/kemalanganlaporan" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Laporan Kemalangan</p>
                 </a>

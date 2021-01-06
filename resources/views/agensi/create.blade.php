@@ -26,6 +26,11 @@
                 <input type="text" class="form-control" name="nama"/>
               </div>
 
+              <div class="form-group">
+                <label for="">No Talian Kecemasan</label>
+                <input type="text" class="form-control" name="talian" pattern="[0-9]{9}" title="No Talian mestilah 9 angka"/>
+              </div>
+
                        
               <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
 

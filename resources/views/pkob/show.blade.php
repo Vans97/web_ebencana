@@ -25,6 +25,11 @@
                 <input type="text" class="form-control" name="nama"/>
               </div>
 
+              <div class="form-group">
+                <label for="">No Talian Kecemasan</label>
+                <input type="text" class="form-control" name="talian" pattern="[0-9]{9}" title="No Talian mestilah 9 angka"/>
+              </div>
+
                        
               <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
 
@@ -39,6 +44,7 @@
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Talian</th>
                             <th scope="col">Kemaskini oleh</th>
                             <th scope="col">Kemaskini pada</th>
                            
@@ -51,6 +57,7 @@
                               <td><a href="/pkob/{{$pkob->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$pkob->kod}}</td>
                               <td>{{$pkob->nama}}</td>
+                              <td>{{$pkob->talian}}</td>
                               <td>{{$pkob->name}}</td>
                               <td>{{$pkob->updated_at}}</td>
                         @endforeach

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\TenagaPkob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use App\Pkob;
 
-class PkobController extends Controller
+
+class TenagaPkobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,8 +27,8 @@ class PkobController extends Controller
      */
     public function create()
     {
-        $pkob = Pkob::all();
-        return view ('pkob.create');
+        $pkobs = Pkob::all();
+        return view ('tenagapkob.create',['pkobs'=>$pkobs]);
     }
 
     /**
@@ -40,26 +41,29 @@ class PkobController extends Controller
     {
         $this->validate($request, [
 
-            'kod'=>'required',
-            'nama'=>'required',
-            'talian'=>'required',
-           
+            'tahun'=>'required',
+            'pkob'=>'required',
+            'pengawal'=>'required',
+            'awam'=>'required',
+            'petugas'=>'required',
+            
            
            
         ]);
 
-        $pkob = new Pkob();
-        $pkob->kod = $request->input('kod');
-        $pkob->nama = $request->input('nama');
-        $pkob->talian = $request->input('talian');
-       
+        $pkob = new TenagaPkob();
+        $pkob->tahun = $request->input('tahun');
+        $pkob->pkob = $request->input('pkob');
+        $pkob->pengawal = $request->input('pengawal');
+        $pkob->awam = $request->input('awam');
+        $pkob->petugas = $request->input('petugas');
       
         $pkob->user_id =auth()->user()->id;
         $pkob->save();
 
        
        
-        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
+        return redirect('tenagapkob/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -70,10 +74,12 @@ class PkobController extends Controller
      */
     public function show($id)
     {
-        $pkobs = DB::table('pkob')->select(DB::raw('pkob.id, pkob.kod, pkob.nama, pkob.talian, pkob.updated_at, users.name'))
-        ->leftJoin('users', 'users.id', '=', 'pkob.user_id')
+        $pkobs = DB::table('tenagapkob')->select(DB::raw('tenagapkob.id, tenagapkob.tahun, tenagapkob.pkob, tenagapkob.pengawal, tenagapkob.awam, tenagapkob.petugas, tenagapkob.updated_at, users.name'))
+        ->leftJoin('users', 'users.id', '=', 'tenagapkob.user_id')
         ->get();
-        return view ('pkob.show',['pkobs'=>$pkobs]);
+        $pkobc = Pkob::all();
+        
+        return view ('tenagapkob.show',['pkobs'=>$pkobs, 'pkobc'=>$pkobc]);
     }
 
     /**
@@ -84,11 +90,8 @@ class PkobController extends Controller
      */
     public function edit($id)
     {
-        $pkob = Pkob::find($id);
-        // if(auth()->user()->id !== $jajahan->user_id){
-        //     return redirect('calendar')->with('error','Unauthorized Page');
-        // }
-        return view ('pkob.edit')->with('pkob',$pkob);
+        $pkob = TenagaPkob::find($id);
+        return view ('tenagapkob.edit')->with('pkob',$pkob);
     }
 
     /**
@@ -102,26 +105,28 @@ class PkobController extends Controller
     {
         $this->validate($request, [
 
-            'kod'=>'required',
-            'nama'=>'required',
-            'talian'=>'required',
-           
+            'tahun'=>'required',
+            'pkob'=>'required',
+            'pengawal'=>'required',
+            'awam'=>'required',
+            'petugas'=>'required',
            
            
         ]);
 
-        $pkob = Pkob::find($id);
-        $pkob->kod = $request->input('kod');
-        $pkob->nama = $request->input('nama');
-        $pkob->talian = $request->input('talian');
-      
+        $pkob = TenagaPkob::find($id);
+        $pkob->tahun = $request->input('tahun');
+        $pkob->pkob = $request->input('pkob');
+        $pkob->pengawal = $request->input('pengawal');
+        $pkob->awam = $request->input('awam');
+        $pkob->petugas = $request->input('petugas');
       
         // $jajahan->user_id =auth()->user()->id;
         $pkob->save();
 
        
        
-        return redirect('pkob/show')->with('success','Data Telah Dimasukkan');
+        return redirect('tenagapkob/show')->with('success','Data Telah Dikemaskini');
     }
 
     /**

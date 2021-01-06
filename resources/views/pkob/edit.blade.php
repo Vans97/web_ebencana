@@ -26,6 +26,11 @@
                 {{Form::text('nama',$pkob->nama,['class'=>'form-control'])}}
             </div>
 
+            <div class="form-group">
+                {{Form::label('talian','No Talian Kecemasan')}}
+                {{Form::text('talian',$pkob->talian,['class'=>'form-control'])}}
+            </div>
+
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
         </div>

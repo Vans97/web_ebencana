@@ -35,4 +35,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('agihan','AgihanController');
     Route::resource('barang','BarangController');
     Route::resource('kemasukkan','KemasukkanController');
+    Route::resource('kemalangan','KemalanganController');
+    Route::resource('kemalangankemasukkan','KemalanganKemasukkanController');
+    Route::resource('kemalanganlaporan','KemalanganLaporanController');
+    Route::resource('kemalanganpengesahan','KemalanganPengesahanController');
+    Route::resource('tenagapkob','TenagaPkobController');
+
+
+
+    Route::get('/kemalanganlaporan/pdf', 'KemalanganLaporanController@pdf');
 });

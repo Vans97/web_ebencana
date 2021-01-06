@@ -9,27 +9,28 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Definasi Agensi & Jabatan</h3>
+            <h3 class="card-title">Definasi Jenis Kemalangan</h3>
           </div>
 
-          <form role="form" method="POST" action="{{action('AgensiController@store')}}">
+          <form role="form" method="POST" action="{{action('KemalanganController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
               <div class="form-group">
-                <label for="">Kod Jabatan</label>
+                <label for="">Kod Jenis Kemalangan</label>
                 <input type="text" class="form-control" name="kod"/>
               </div>
 
               <div class="form-group">
-                <label for="">Nama Jabatan</label>
+                <label for="">Nama Jenis Kemalangan</label>
                 <input type="text" class="form-control" name="nama"/>
               </div>
 
               <div class="form-group">
-                <label for="">No Talian Kecemansan</label>
-                <input type="text" class="form-control" name="talian" pattern="[0-9]{9}" title="No Talian mestilah 9 angka"/>
+                <label for="">keterangan</label>
+                <input type="text" class="form-control" name="keterangan"/>
               </div>
-  
+
+                       
               <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
 
             </div>
@@ -43,32 +44,26 @@
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">No Talian Kecemasan</th>
-                            <th scope="col">Kemaskini oleh</th>
-                            <th scope="col">Kemaskini pada</th>
+                            <th scope="col">kemas oleh</th>
+                            <th scope="col">kemakini pada</th>
                            
                           </tr>
                         </thead>
                       
                         <tbody>
-                         @foreach($agensis as $agensi)
+                         @foreach($kemalangans as $kemalangan)
                           <tr>
-                              <td><a href="/agensi/{{$agensi->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$agensi->kod}}</td>
-                              <td>{{$agensi->nama}}</td>
-                              <td>{{$agensi->talian}}</td>
-                              <td>{{$agensi->name}}</td>
-                              <td>{{$agensi->updated_at}}</td>
+                              <td><a href="/kemalangan/{{$kemalangan->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td>{{$kemalangan->kod}}</td>
+                              <td>{{$kemalangan->nama}}</td>
+                              <td>{{$kemalangan->name}}</td>
+                              <td>{{$kemalangan->updated_at}}</td>
                         @endforeach
                              
                           </tr>
                           
                         </tbody>
                       </table>
-
-
-
-
         </div>
       </div>
     </div>

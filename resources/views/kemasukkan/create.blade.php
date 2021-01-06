@@ -21,7 +21,7 @@
             <div class="card-body">
 
 
-            <div class="form-group">
+                <div class="form-group">
                   
                 <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Fasa') }}</label>
                 <select id="fasa" name="fasa" class="form-control @error('fasa') is-invalid @enderror" required>
@@ -29,7 +29,7 @@
                          <option value="Fasa I">Fasa I</option>
                          <option value="Fasa II">Fasa II</option>
                          <option value="Fasa III">Fasa III</option>
-                         <option value="{Fasa Tambahan">Fasa Tambahan</option>
+                         <option value="Fasa Tambahan">Fasa Tambahan</option>
                  </select>
     
                 </div>
@@ -77,7 +77,7 @@
 
               <div class="form-group">
                 <label for="">Harga Keseluruhan</label>
-                <input type="text" id="tot" class="form-control " name="total"/>
+                <input type="text" id="tot" class="form-control " name="total" readonly/>
               </div>
 
                        

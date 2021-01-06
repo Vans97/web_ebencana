@@ -9,35 +9,35 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Urus PKOB</h3>
+            <h3 class="card-title">Urus Jenis Kemalangan</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form role="form" method="POST" action="{{action('PkobController@store')}}">
+          <form role="form" method="POST" action="{{action('KemalanganController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
               <div class="form-group">
-                <label for="">Kod PKOB</label>
+                <label for="">Kod Jenis Kemalangan</label>
                 <input type="text" class="form-control" name="kod"/>
               </div>
 
               <div class="form-group">
-                <label for="">Nama PKOB</label>
+                <label for="">Nama Jenis Kemalangan</label>
                 <input type="text" class="form-control" name="nama"/>
               </div>
 
               <div class="form-group">
-                <label for="">No Talian Kecemasan</label>
-                <input type="text" class="form-control" name="talian" pattern="[0-9]{9}" title="No Talian mestilah 9 angka"/>
+                <label for="">keterangan</label>
+                <input type="text" class="form-control" name="keterangan"/>
               </div>
 
-                 
+                       
               <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
 
             </div>
           </form>
 
-          <a href="/pkob/show" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
+          <a href="/kemalangan/show" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
 
         </div>
       </div>

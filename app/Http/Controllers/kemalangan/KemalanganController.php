@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Kemalangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Agensi;
 
-class AgensiController extends Controller
+
+class KemalanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class AgensiController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -26,8 +27,8 @@ class AgensiController extends Controller
      */
     public function create()
     {
-        $agensi = Agensi::all();
-        return view ('agensi.create');
+        $kemalangan = Kemalangan::all();
+        return view ('kemalangan.create');
     }
 
     /**
@@ -42,22 +43,22 @@ class AgensiController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-            'talian'=>'required',
-            
+            'keterangan'=>'required',
            
            
         ]);
 
-        $agensi = new Agensi();
-        $agensi->kod = $request->input('kod');
-        $agensi->nama = $request->input('nama');
-        $agensi->talian = $request->input('talian');
-        $agensi->user_id =auth()->user()->id;
-        $agensi->save();
+        $kemalangan = new Kemalangan();
+        $kemalangan->kod = $request->input('kod');
+        $kemalangan->nama = $request->input('nama');
+        $kemalangan->keterangan = $request->input('keterangan');
+      
+        $kemalangan->user_id =auth()->user()->id;
+        $kemalangan->save();
 
        
        
-        return redirect('agensi/show')->with('success','Data Telah Dimasukkan');
+        return redirect('kemalangan/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -68,12 +69,10 @@ class AgensiController extends Controller
      */
     public function show($id)
     {
-        // $agensis = Agensi::all();
-
-        $agensis = DB::table('agensi')->select(DB::raw('agensi.id, agensi.kod, agensi.nama, agensi.talian, agensi.updated_at, users.name'))
-        ->leftJoin('users', 'users.id', '=', 'agensi.user_id')
+        $kemalangans = DB::table('kemalangan')->select(DB::raw('kemalangan.id, kemalangan.kod, kemalangan.nama, kemalangan.keterangan, kemalangan.updated_at, users.name'))
+        ->leftJoin('users', 'users.id', '=', 'kemalangan.user_id')
         ->get();
-        return view ('agensi.show',['agensis'=>$agensis]);
+    return view ('kemalangan.show')->with('kemalangans', $kemalangans);
     }
 
     /**
@@ -84,11 +83,11 @@ class AgensiController extends Controller
      */
     public function edit($id)
     {
-        $agensi = Agensi::find($id);
+        $kemalangan = Kemalangan::find($id);
         // if(auth()->user()->id !== $jajahan->user_id){
         //     return redirect('calendar')->with('error','Unauthorized Page');
         // }
-        return view ('agensi.edit')->with('agensi',$agensi);
+        return view ('kemalangan.edit')->with('kemalangan',$kemalangan);
     }
 
     /**
@@ -104,24 +103,22 @@ class AgensiController extends Controller
 
             'kod'=>'required',
             'nama'=>'required',
-            'talian'=>'required',
-           
+            'keterangan'=>'required',
            
            
         ]);
 
-        $agensi = Agensi::find($id);
-        $agensi->kod = $request->input('kod');
-        $agensi->nama = $request->input('nama');
-        $agensi->talian = $request->input('talian');
-       
+        $kemalangan = Kemalangan::find($id);
+        $kemalangan->kod = $request->input('kod');
+        $kemalangan->nama = $request->input('nama');
+        $kemalangan->keterangan = $request->input('keterangan');
       
         // $jajahan->user_id =auth()->user()->id;
-        $agensi->save();
+        $kemalangan->save();
 
        
        
-        return redirect('agensi/show')->with('success','Data Telah Dimasukkan');
+        return redirect('kemalangan/show')->with('success','Data Telah DiKemaskini');
     }
 
     /**

@@ -47,7 +47,9 @@
 
               <div class="form-group">
                 <label for="">Kuantiti</label>
-                <input type="text" class="form-control" name="kuantiti"/>
+                <input type="number" class="form-control" name="kuantiti" min="0" max="9999999"/>
+                <!-- <input type="number" class="form-control" name="kuantiti" min="0" max="99999"/> -->
+
               </div>
 
               <div class="form-group">

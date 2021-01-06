@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-        
-
           <div class="row">
       <!-- left column -->
       <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
@@ -14,23 +11,23 @@
             <h3 class="card-title">Kemaskini</h3>
           </div>
       
-        {!! Form::open(['action' => ['AgensiController@update',$agensi->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['KemalanganController@update',$kemalangan->id], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
                 {{Form::label('kod','Kod')}}
-                {{Form::text('kod',$agensi->kod,['class'=>'form-control','readonly'])}}
+                {{Form::text('kod',$kemalangan->kod,['class'=>'form-control','readonly'])}}
             </div>
 
             <div class="form-group">
                 {{Form::label('nama','Nama')}}
-                {{Form::text('nama',$agensi->nama,['class'=>'form-control'])}}
+                {{Form::text('nama',$kemalangan->nama,['class'=>'form-control'])}}
             </div>
 
             <div class="form-group">
-                {{Form::label('talian','No Talian Kecemasan')}}
-                {{Form::text('talian',$agensi->talian,['class'=>'form-control'])}}
+                {{Form::label('keterangan','keterangan')}}
+                {{Form::text('keterangan',$kemalangan->keterangan,['class'=>'form-control'])}}
             </div>
-
+    
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
         </div>
