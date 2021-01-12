@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 {{Form::label('namaP','Nama Pengguna')}}
-                {{Form::text('namaP',$user->namaP,['class'=>'form-control','readonly'])}}
+                {{Form::text('namaP',$user->namaP,['class'=>'form-control'])}}
             </div>
 
             <div class="form-group">

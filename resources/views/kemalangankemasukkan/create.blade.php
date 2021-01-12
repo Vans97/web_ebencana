@@ -76,11 +76,6 @@
               </div>
 
               <div class="form-group">
-                <label for="">Gambar Mangsa</label>
-                <input type="text" class="form-control" name="gambar"/>
-              </div>
-
-              <div class="form-group">
                 <label for="bangsa" class="col-md-0 col-form-label text-md-right">{{ __('Bangsa') }}</label>
                 <select id="bangsa" name="bangsa" class="form-control @error('bangsa') is-invalid @enderror" required>
                    

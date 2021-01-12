@@ -53,7 +53,6 @@ class KemalanganKemasukkanController extends Controller
             'jajahan'=>'required',
             'nama_mangsa'=>'required',
             'ic'=>'required',
-            'gambar'=>'required',
             'bangsa'=>'required',
             'jantina'=>'required',
             'alamat'=>'required',
@@ -74,7 +73,6 @@ class KemalanganKemasukkanController extends Controller
         $kemalangan->jajahan = $request->input('jajahan');
         $kemalangan->nama_mangsa = $request->input('nama_mangsa');
         $kemalangan->ic = $request->input('ic');
-        $kemalangan->gambar = $request->input('gambar');
         $kemalangan->bangsa = $request->input('bangsa');
         $kemalangan->jantina = $request->input('jantina');
         $kemalangan->alamat = $request->input('alamat');
@@ -143,7 +141,7 @@ class KemalanganKemasukkanController extends Controller
             'jajahan'=>'required',
             'nama_mangsa'=>'required',
             'ic'=>'required',
-            'gambar'=>'required',
+            
             'bangsa'=>'required',
             'jantina'=>'required',
             'alamat'=>'required',
@@ -164,7 +162,6 @@ class KemalanganKemasukkanController extends Controller
         $kemalangan->jajahan = $request->input('jajahan');
         $kemalangan->nama_mangsa = $request->input('nama_mangsa');
         $kemalangan->ic = $request->input('ic');
-        $kemalangan->gambar = $request->input('gambar');
         $kemalangan->bangsa = $request->input('bangsa');
         $kemalangan->jantina = $request->input('jantina');
         $kemalangan->alamat = $request->input('alamat');

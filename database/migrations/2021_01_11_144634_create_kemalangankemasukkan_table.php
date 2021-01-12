@@ -25,11 +25,11 @@ class CreateKemalangankemasukkanTable extends Migration
             $table->String('jajahan');
             $table->String('nama_mangsa');
             $table->String('ic');
-            $table->String('gambar');
             $table->String('bangsa');
             $table->String('jantina');
             $table->String('alamat');
             $table->String('user_id');
+            $table->String('pengesahan');
             $table->timestamps();
         });
     }

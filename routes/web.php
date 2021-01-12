@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('kemalanganlaporan','KemalanganLaporanController');
     Route::resource('kemalanganpengesahan','KemalanganPengesahanController');
     Route::resource('tenagapkob','TenagaPkobController');
+    Route::resource('menyelamat','MenyelamatController');
+    Route::resource('menyelamatpengesahan','MenyelamatPengesahanController');
+    Route::resource('menyelamatlaporan','MenyelamatLaporanController');
+
 
 
 

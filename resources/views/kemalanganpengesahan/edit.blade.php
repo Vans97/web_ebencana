@@ -63,11 +63,6 @@
             </div>
 
             <div class="form-group">
-                {{Form::label('gambar','Gambar')}}
-                {{Form::text('gambar',$kemalangan->gambar,['class'=>'form-control', 'readonly'])}}
-            </div>
-
-            <div class="form-group">
                 {{Form::label('bangsa','Bangsa')}}
                 {{Form::text('bangsa',$kemalangan->bangsa,['class'=>'form-control', 'readonly'])}}
             </div>

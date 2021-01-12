@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Illuminate\Support\Facades\Auth;
+use App\Menyelamat;
+use Illuminate\Support\Facades\DB;
 
-class ProfileController extends Controller
+
+class MenyelamatLaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user= Auth::user();
-        return view ('profile.index', ['user'=>$user]);
+        $menyelamats = Menyelamat::all();
+        return view('menyelamatlaporan.index',['menyelamats'=>$menyelamats]);
     }
 
     /**
@@ -48,7 +49,11 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $menyelamats = DB::table('menyelamat')->select(DB::raw('menyelamat.id, menyelamat.tarikh, menyelamat.jajahan, menyelamat.tempat_pemindahan, menyelamat.lokasi, menyelamat.total, menyelamat.pengesahan, menyelamat.updated_at, users.name'))
+        ->leftJoin('users', 'users.id', '=', 'menyelamat.user_id')
+        ->where('menyelamat.id',$id)
+        ->get();
+        return view ('menyelamatlaporan.show',['menyelamats'=>$menyelamats]);
     }
 
     /**
@@ -59,8 +64,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view ('profile.edit', ['user'=>$user]);
+        //
     }
 
     /**
@@ -72,20 +76,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'password'=>'required',
-            'email'=>'required',
-            'namaP'=>'required'
-
-
-        ]);
-
-        $user = User::find($id);
-        $user->password = $request->input('password');
-        $user->email = $request->input('email');
-        $user->namaP = $request->input('namaP');
-        $user->save();
-        return redirect('/profile')->with('success', 'Profil Telah Dikemaskini');
+        //
     }
 
     /**

@@ -216,7 +216,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -267,7 +267,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
@@ -303,7 +303,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -361,8 +361,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> -->
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -496,7 +496,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -507,26 +507,26 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="/menyelamat/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemasukkan Gerakan Menyelamat</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="/menyelamatpengesahan/show" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Pengesahan Gerakan Menyelamat</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="/menyelamatlaporan" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Laporan Gerakan Menyelamat</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -554,8 +554,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> -->
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -649,7 +649,7 @@
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kelengkapan Sokongan Operasi Menyelamat</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
         </ul>

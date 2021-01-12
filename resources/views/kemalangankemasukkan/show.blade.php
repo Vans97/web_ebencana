@@ -74,10 +74,7 @@
                 <input type="text" class="form-control" name="ic" pattern="[0-9]{12}" title="Sila isi tanpa ' - '" />
               </div>
 
-              <div class="form-group">
-                <label for="">Gambar Mangsa</label>
-                <input type="text" class="form-control" name="gambar"/>
-              </div>
+             
 
               <div class="form-group">
                 <label for="bangsa" class="col-md-0 col-form-label text-md-right">{{ __('Bangsa') }}</label>
