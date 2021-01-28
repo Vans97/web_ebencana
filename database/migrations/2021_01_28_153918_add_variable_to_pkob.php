@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTalianToAgensi extends Migration
+class AddVariableToPkob extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddTalianToAgensi extends Migration
      */
     public function up()
     {
-        Schema::table('agensi', function (Blueprint $table) {
+        Schema::table('pkob', function (Blueprint $table) {
             $table->String('talian');
-            
+            $table->String('user_id');
         });
     }
 
@@ -26,9 +26,9 @@ class AddTalianToAgensi extends Migration
      */
     public function down()
     {
-        Schema::table('agensi', function (Blueprint $table) {
+        Schema::table('pkob', function (Blueprint $table) {
             $table->dropColumn('talian');
-            
+            $table->dropColumn('user_id');
         });
     }
 }

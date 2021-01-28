@@ -17,18 +17,13 @@
             {{csrf_field()}}
             <div class="card-body">
 
-            @foreach($daerah as $daerahs)
-            
-            <input type="hidden" id="kod" value="{{ $daerahs->kod }} " />
-            @endforeach
-
-
+          
               <div class="form-group">
                   
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
               <select id="djajahan" name="djajahan" class="form-control @error('djajahan') is-invalid @enderror" onchange="bindKod()" required>
                          @foreach($daerah as $daerahs)
-                        <option value="{{ $daerahs->nama }}">{{ $daerahs->nama }}</option>
+                        <option value="{{ $daerahs->kod }}">{{ $daerahs->nama }}</option>
                          @endforeach
               </select>
 
@@ -38,7 +33,7 @@
                 <label for="">Kod Daerah</label>
                 <input type="text" class="form-control" name="kod" />
               </div>
-
+<!-- 
               <div class="form-group">
                 <label for="">Nama Daerah</label>
                 <input type="text" class="form-control" name="nama"/>
@@ -55,10 +50,10 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->
 <script>
   function bindKod(){
-    var x = document.getElementById("kod").value;
+    var x = document.getElementById("djajahan").value;
     document.querySelector("input[name='kod']").value = x;
   }
 </script>

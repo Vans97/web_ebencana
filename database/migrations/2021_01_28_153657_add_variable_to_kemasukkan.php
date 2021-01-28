@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusToKemalangankemasukkan extends Migration
+class AddVariableToKemasukkan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddStatusToKemalangankemasukkan extends Migration
      */
     public function up()
     {
-        Schema::table('kemalangankemasukkan', function (Blueprint $table) {
-            $table->string('pengesahan');
+        Schema::table('kemasukkan', function (Blueprint $table) {
+            $table->String('user_id');
             
         });
     }
@@ -26,8 +26,8 @@ class AddStatusToKemalangankemasukkan extends Migration
      */
     public function down()
     {
-        Schema::table('kemalangankemasukkan', function (Blueprint $table) {
-            $table->dropColumn('pengesahan');
+        Schema::table('kemasukkan', function (Blueprint $table) {
+            $table->dropColumn('user_id');
             
         });
     }
