@@ -50,7 +50,7 @@
                           <tr>
                             
                             <th scope="col">Kemaskini</th>
-                            <th scope="col">Jajahan</th>
+                            <!-- <th scope="col">Jajahan</th> -->
                             <th scope="col">Kod Daerah</th>
                             <th scope="col">Nama Daerah</th>
                             <th scope="col">Kemaskini oleh</th>
@@ -63,8 +63,7 @@
                          @foreach($daerahs as $daerah)
                           <tr>
                               <td><a href="/daerah/{{$daerah->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$daerah->djajahan}}</td>
-                              <td>{{$daerah->kod}}</td>
+                              <td>{{$daerah->djajahan}}-{{$daerah->kod}}</td>
                               <td>{{$daerah->nama}}</td>
                               <td>{{$daerah->name}}</td>
                               <td>{{$daerah->updated_at}}</td>

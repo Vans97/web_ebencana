@@ -44,7 +44,6 @@ class DaerahController extends Controller
             'kod'=>'required',
             'nama'=>'required',
             'djajahan'=>'required',
-            'lkod'=>'required',
            
            
         ]);
@@ -53,7 +52,6 @@ class DaerahController extends Controller
         $daerah->kod = $request->input('kod');
         $daerah->nama = $request->input('nama');
         $daerah->djajahan = $request->input('djajahan');
-        $daerah->lkod = $request->input('lkod');
       
         $daerah->user_id =auth()->user()->id;
         $daerah->save();
@@ -72,7 +70,7 @@ class DaerahController extends Controller
     public function show($id)
     {
         // $daerahs = Daerah::all();
-        $daerahs = DB::table('daerah')->select(DB::raw('daerah.id, daerah.kod, daerah.nama, daerah.djajahan, daerah.lkod, daerah.updated_at, users.name'))
+        $daerahs = DB::table('daerah')->select(DB::raw('daerah.id, daerah.kod, daerah.nama, daerah.djajahan, daerah.updated_at, users.name'))
         ->leftJoin('users', 'users.id', '=', 'daerah.user_id')
         ->get();
         $daerahj = Jajahan::all();
@@ -105,7 +103,6 @@ class DaerahController extends Controller
             'kod'=>'required',
             'nama'=>'required',
             'djajahan'=>'required',
-            'lkod'=>'required',
            
            
         ]);
@@ -114,7 +111,6 @@ class DaerahController extends Controller
         $daerah->kod = $request->input('kod');
         $daerah->nama = $request->input('nama');
         $daerah->djajahan = $request->input('djajahan');
-        $daerah->lkod = $request->input('lkod');
       
         // $jajahan->user_id =auth()->user()->id;
         $daerah->save();
