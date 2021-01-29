@@ -32,8 +32,9 @@
               <div class="form-group">
                 <label for="">Kod Daerah</label>
                 <input type="text" class="form-control" name="kod" />
+                <input type="text" class="form-control" name="lkod" />
               </div>
-<!-- 
+
               <div class="form-group">
                 <label for="">Nama Daerah</label>
                 <input type="text" class="form-control" name="nama"/>
@@ -50,7 +51,7 @@
         </div>
       </div>
     </div>
-</div> -->
+</div>
 <script>
   function bindKod(){
     var x = document.getElementById("djajahan").value;
