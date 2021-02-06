@@ -85,7 +85,7 @@
             
 
             {{ method_field('PUT')}}
-            <button type="submit" name="submit" class="btn btn-success">Kemaskini</button>
+            <button type="submit" name="submit" class="btn btn-success">Tambah</button>
 
         </div>
     

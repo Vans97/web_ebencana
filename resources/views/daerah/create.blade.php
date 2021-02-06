@@ -22,6 +22,7 @@
                   
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
               <select id="djajahan" name="djajahan" class="form-control @error('djajahan') is-invalid @enderror" onchange="bindKod()" required>
+                    <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($daerah as $daerahs)
                         <option value="{{ $daerahs->kod }}">{{ $daerahs->nama }}</option>
                          @endforeach
@@ -41,7 +42,7 @@
               </div>
 
                        
-              <input type="submit" name="submit" class="btn btn-primary" value="Submit"/>
+              <input type="submit" name="submit" class="btn btn-primary" value="Hantar"/>
 
             </div>
           </form>

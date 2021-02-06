@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('menyelamat','MenyelamatController');
     Route::resource('menyelamatpengesahan','MenyelamatPengesahanController');
     Route::resource('menyelamatlaporan','MenyelamatLaporanController');
+    Route::resource('kampung','KampungController');
 
 
 

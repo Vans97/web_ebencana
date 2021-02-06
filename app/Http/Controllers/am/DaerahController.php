@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Daerah;
 use App\Jajahan;
 use Illuminate\Support\Facades\DB;
-
+use PHPUnit\Framework\Constraint\Count;
 
 class DaerahController extends Controller
 {
@@ -70,9 +70,12 @@ class DaerahController extends Controller
     public function show($id)
     {
         // $daerahs = Daerah::all();
-        $daerahs = DB::table('daerah')->select(DB::raw('daerah.id, daerah.kod, daerah.nama, daerah.djajahan, daerah.updated_at, users.name'))
+        $daerahs = DB::table('daerah')->select(DB::raw('jajahan.nama AS jah, daerah.id, daerah.kod, daerah.nama, daerah.djajahan, daerah.updated_at, users.name'))
         ->leftJoin('users', 'users.id', '=', 'daerah.user_id')
+        ->leftJoin('jajahan', 'daerah.djajahan', '=', 'jajahan.kod')
         ->get();
+
+        
         $daerahj = Jajahan::all();
         return view ('daerah.show',['daerahs'=>$daerahs, 'daerahj'=>$daerahj]);
     }

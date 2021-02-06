@@ -90,7 +90,7 @@
            </div>
     
             {{Form::hidden('_method','PUT')}}
-            {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Tambah',['class'=>'btn btn-primary'])}}
         </div>
         {!! Form::close() !!}
 
