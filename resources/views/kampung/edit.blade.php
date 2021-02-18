@@ -14,22 +14,29 @@
             <h3 class="card-title">Kemaskini</h3>
           </div>
       
-        {!! Form::open(['action' => ['DaerahController@update',$daerah->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['KampungController@update',$kampung->id], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
-                {{Form::label('kod','Kod Daerah')}}
-                {{Form::text('kod',$daerah->kod,['class'=>'form-control','readonly'])}}
+                {{Form::label('kjajahan','Jajahan')}}
+                {{Form::text('kjajahan',$kampung->kjajahan,['class'=>'form-control','readonly'])}}
             </div>
 
             <div class="form-group">
-                {{Form::label('nama','Nama Daerah')}}
-                {{Form::text('nama',$daerah->nama,['class'=>'form-control'])}}
+                {{Form::label('kdaerah','Daerah')}}
+                {{Form::text('kdaerah',$kampung->kdaerah,['class'=>'form-control', 'readonly'])}}
             </div>
 
             <div class="form-group">
-                {{Form::label('djajahan','Jajahan', 'hidden')}}
-                {{Form::text('djajahan',$daerah->djajahan,['class'=>'form-control', 'readonly', 'hidden'])}}
+                {{Form::label('lkod','Kod Kampung')}}
+                {{Form::text('lkod',$kampung->lkod,['class'=>'form-control', 'readonly'])}}
             </div>
+
+            <div class="form-group">
+                {{Form::label('nama','Nama Kampung')}}
+                {{Form::text('nama',$kampung->nama,['class'=>'form-control'])}}
+            </div>
+
+            
     
             {{Form::hidden('_method','PUT')}}
             {{Form::submit('Tambah',['class'=>'btn btn-primary'])}}

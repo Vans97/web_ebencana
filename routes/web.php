@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('menyelamatpengesahan','MenyelamatPengesahanController');
     Route::resource('menyelamatlaporan','MenyelamatLaporanController');
     Route::resource('kampung','KampungController');
+    Route::resource('pusatpemindahan','PusatPemindahanController');
 
 
 

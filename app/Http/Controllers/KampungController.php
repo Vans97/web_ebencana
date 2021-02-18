@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Jajahan;
 use App\Daerah;
+use App\Kampung;
 use Illuminate\Support\Facades\DB;
 
 class KampungController extends Controller
@@ -52,7 +53,28 @@ class KampungController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+
+            'kjajahan'=>'required',
+            'kdaerah'=>'required',
+            'lkod'=>'required',
+            'nama'=>'required',
+           
+           
+        ]);
+
+        $kampung = new Kampung();
+        $kampung->kjajahan = $request->input('kjajahan');
+        $kampung->kdaerah = $request->input('kdaerah');
+        $kampung->lkod = $request->input('lkod');
+        $kampung->nama = $request->input('nama');
+      
+        $kampung->user_id =auth()->user()->id;
+        $kampung->save();
+
+       
+       
+        return redirect('kampung/show')->with('success','Data Telah Dimasukkan');
     }
 
     /**
@@ -63,7 +85,19 @@ class KampungController extends Controller
      */
     public function show($id)
     {
-        //
+        
+            // $daerahs = Daerah::all();
+            $kampungs = DB::table('kampung')->select(DB::raw('jajahan.nama AS jah, kampung.nama, daerah.nama AS dah, kampung.id, kampung.kjajahan, kampung.kdaerah, kampung.lkod, kampung.updated_at, users.name'))
+            ->leftJoin('users', 'users.id', '=', 'kampung.user_id')
+            ->leftJoin('daerah', 'daerah.kod', '=', 'kampung.kdaerah')
+            ->leftJoin('jajahan', 'daerah.djajahan', '=', 'jajahan.kod')
+            ->get();
+    
+            
+            $kampungj = Jajahan::all();
+            $kampungd = Daerah::all();
+            return view ('kampung.show',['kampungs'=>$kampungs, 'kampungj'=>$kampungj, 'kampungd'=>$kampungd ]);
+        
     }
 
     /**
@@ -74,7 +108,8 @@ class KampungController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kampung = Kampung::find($id);
+        return view ('kampung.edit')->with('kampung', $kampung);
     }
 
     /**
@@ -86,7 +121,26 @@ class KampungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+
+            // 'kjajahan'=>'required',
+            'lkod'=>'required',
+            'nama'=>'required',
+           
+           
+        ]);
+
+        $kampung = Kampung::find($id);
+        // $kampung->kjajahan = $request->input('kjajahan');
+        $kampung->lkod = $request->input('lkod');
+        $kampung->nama = $request->input('nama');
+      
+        // $jajahan->user_id =auth()->user()->id;
+        $kampung->save();
+
+       
+       
+        return redirect('kampung/show')->with('success','Data Telah Dikemaskini');
     }
 
     /**

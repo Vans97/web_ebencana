@@ -17,8 +17,9 @@ class CreateKampungTable extends Migration
             $table->id();
             $table->String("kjajahan");
             $table->String("kdaerah");
-            $table->String("kod");
+            $table->String("lkod");
             $table->String("nama");
+            $table->String("user_id");
             $table->timestamps();
         });
     }
