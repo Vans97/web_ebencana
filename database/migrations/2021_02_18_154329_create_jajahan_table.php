@@ -18,6 +18,7 @@ class CreateJajahanTable extends Migration
             $table->String('kod');
             $table->String('nama');
             $table->String('keterangan');
+            $table->String('user_id');
             $table->timestamps();
         });
     }

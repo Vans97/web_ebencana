@@ -28,7 +28,7 @@
 
             <div class="form-group">
                 {{Form::label('keterangan','keterangan')}}
-                {{Form::text('keterangan',$jajahan->keterangan,['class'=>'form-control', 'readonly'])}}
+                {{Form::text('keterangan',$jajahan->keterangan,['class'=>'form-control'])}}
             </div>
     
             {{Form::hidden('_method','PUT')}}
