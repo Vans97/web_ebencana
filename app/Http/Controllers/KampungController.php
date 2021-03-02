@@ -87,10 +87,10 @@ class KampungController extends Controller
     {
         
             // $daerahs = Daerah::all();
-            $kampungs = DB::table('kampung')->select(DB::raw('jajahan.nama AS jah, kampung.nama, daerah.nama AS dah, kampung.id, kampung.kjajahan, kampung.kdaerah, kampung.lkod, kampung.updated_at, users.name'))
+            $kampungs = DB::table('kampung')->select(DB::raw('jajahan.nama AS jah, kampung.nama, daerah.nama AS dah, kampung.kjajahan, kampung.kdaerah, kampung.lkod, kampung.updated_at, users.name'))
             ->leftJoin('users', 'users.id', '=', 'kampung.user_id')
             ->leftJoin('daerah', 'daerah.kod', '=', 'kampung.kdaerah')
-            ->leftJoin('jajahan', 'daerah.djajahan', '=', 'jajahan.kod')
+            ->leftJoin('jajahan', 'kampung.kjajahan', '=', 'jajahan.kod')
             ->get();
     
             

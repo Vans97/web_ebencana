@@ -14,10 +14,12 @@ class CreatePusatPemindahanTable extends Migration
     public function up()
     {
         Schema::create('pusat_pemindahan', function (Blueprint $table) {
-            $table->id();
+            
+            $table->String('lkod')->primary();
             $table->String('pjajahan');
+                $table->foreign('pjajahan')->references('kod')->on('jajahan');
             $table->String('pdaerah');
-            $table->String('lkod');
+                $table->foreign('pdaerah')->references('kod')->on('daerah');
             $table->String('nama');
             $table->integer('had');
             $table->String('keterangan');

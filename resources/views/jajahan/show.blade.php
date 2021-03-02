@@ -68,7 +68,7 @@
                         <tbody>
                          @foreach($jajahans as $jajahan)
                           <tr>
-                              <td><a href="/jajahan/{{$jajahan->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td><a href="/jajahan/{{$jajahan->kod}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$jajahan->kod}}</td>
                               <td>{{$jajahan->nama}}</td>
                               <td>{{$jajahan->name}}</td>
@@ -79,10 +79,6 @@
                           
                         </tbody>
                       </table>
-
-
-
-
         </div>
       </div>
     </div>

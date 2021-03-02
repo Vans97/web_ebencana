@@ -14,8 +14,8 @@ class CreateJajahanTable extends Migration
     public function up()
     {
         Schema::create('jajahan', function (Blueprint $table) {
-            $table->id();
-            $table->String('kod');
+            
+            $table->String('kod')->primary();
             $table->String('nama');
             $table->String('keterangan');
             $table->String('user_id');

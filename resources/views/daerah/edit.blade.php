@@ -14,7 +14,7 @@
             <h3 class="card-title">Kemaskini</h3>
           </div>
       
-        {!! Form::open(['action' => ['DaerahController@update',$daerah->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['DaerahController@update',$daerah->kod], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
                 {{Form::label('kod','Kod Daerah')}}

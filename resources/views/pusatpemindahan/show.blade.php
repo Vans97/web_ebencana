@@ -84,7 +84,7 @@
                         <tbody>
                          @foreach($pusats as $pusat)
                           <tr>
-                              <td><a href="/pusatpemindahan/{{$pusat->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td><a href="/pusatpemindahan/{{$pusat->lkod}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$pusat->pjajahan}}-{{$pusat->pdaerah}}-{{$pusat->lkod}}</td>
                               <td>{{$pusat->jah}}</td>
                               <td>{{$pusat->dah}}</td>

@@ -14,13 +14,16 @@ class CreateKampungTable extends Migration
     public function up()
     {
         Schema::create('kampung', function (Blueprint $table) {
-            $table->id();
+            $table->String("lkod")->primary();
             $table->String("kjajahan");
+                $table->foreign('kjajahan')->references('kod')->on('jajahan');
             $table->String("kdaerah");
-            $table->String("lkod");
+                $table->foreign("kdaerah")->references("kod")->on('daerah');
             $table->String("nama");
             $table->String("user_id");
             $table->timestamps();
+
+
         });
     }
 

@@ -64,7 +64,7 @@
                         <tbody>
                          @foreach($daerahs as $daerah)
                           <tr>
-                              <td><a href="/daerah/{{$daerah->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td><a href="/daerah/{{$daerah->kod}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$daerah->jah}}</td>
                               <td>{{$daerah->djajahan}}-{{$daerah->kod}}</td>
                               <td>{{$daerah->nama}}</td>

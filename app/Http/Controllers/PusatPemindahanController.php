@@ -66,8 +66,6 @@ class PusatPemindahanController extends Controller
         $pemindahan->user_id =auth()->user()->id;
         $pemindahan->save();
 
-       
-       
         return redirect('pusatpemindahan/show')->with('success','Data Telah Dimasukkan');
     }
 
@@ -79,10 +77,10 @@ class PusatPemindahanController extends Controller
      */
     public function show($id)
     {
-        $pusats = DB::table('pusat_pemindahan')->select(DB::raw('jajahan.nama AS jah, daerah.nama AS dah, pusat_pemindahan.nama AS pp, pusat_pemindahan.id, pusat_pemindahan.pjajahan, pusat_pemindahan.pdaerah, pusat_pemindahan.lkod, pusat_pemindahan.had, pusat_pemindahan.updated_at, users.name'))
+        $pusats = DB::table('pusat_pemindahan')->select(DB::raw('jajahan.nama AS jah, daerah.nama AS dah, pusat_pemindahan.nama AS pp, pusat_pemindahan.pjajahan, pusat_pemindahan.pdaerah, pusat_pemindahan.lkod, pusat_pemindahan.had, pusat_pemindahan.updated_at, users.name'))
             ->leftJoin('users', 'users.id', '=', 'pusat_pemindahan.user_id')
             ->leftJoin('daerah', 'daerah.kod', '=', 'pusat_pemindahan.pdaerah')
-            ->leftJoin('jajahan', 'daerah.djajahan', '=', 'jajahan.kod')
+            ->leftJoin('jajahan', 'pusat_pemindahan.pjajahan', '=', 'jajahan.kod')
             ->get();
     
             

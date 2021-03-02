@@ -76,7 +76,7 @@
                         <tbody>
                          @foreach($kampungs as $kampung)
                           <tr>
-                              <td><a href="/kampung/{{$kampung->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td><a href="/kampung/{{$kampung->lkod}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
                               <td>{{$kampung->kjajahan}}-{{$kampung->kdaerah}}-{{$kampung->lkod}}</td>
                               <td>{{$kampung->jah}}</td>
                               <td>{{$kampung->dah}}</td>

@@ -2,10 +2,7 @@
 
 @section('content')
 
-
-        
-
-          <div class="row">
+    <div class="row">
       <!-- left column -->
       <div class="col-md-10" style="margin-left: 7%; margin-top:2%">
         <!-- general form elements -->
@@ -14,7 +11,7 @@
             <h3 class="card-title">Kemaskini</h3>
           </div>
       
-        {!! Form::open(['action' => ['JajahanController@update',$jajahan->id], 'method'=>'POST']) !!}
+        {!! Form::open(['action' => ['JajahanController@update',$jajahan->kod], 'method'=>'POST']) !!}
         <div class="card-body">
             <div class="form-group">
                 {{Form::label('kod','Kod')}}

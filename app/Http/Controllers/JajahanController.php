@@ -71,7 +71,7 @@ class JajahanController extends Controller
         // $jajahans = Jajahan::all();
         // return view ('jajahan.show',['jajahans'=>$jajahans]);
 
-        $jajahans = DB::table('jajahan')->select(DB::raw('jajahan.id, jajahan.kod, jajahan.nama, jajahan.keterangan, jajahan.updated_at, users.name'))
+        $jajahans = DB::table('jajahan')->select(DB::raw('jajahan.kod, jajahan.nama, jajahan.keterangan, jajahan.updated_at, users.name'))
             ->leftJoin('users', 'users.id', '=', 'jajahan.user_id')
             ->get();
         return view ('jajahan.show')->with('jajahans', $jajahans);
@@ -90,6 +90,7 @@ class JajahanController extends Controller
         // if(auth()->user()->id !== $jajahan->user_id){
         //     return redirect('calendar')->with('error','Unauthorized Page');
         // }
+        
         return view ('jajahan.edit')->with('jajahan',$jajahan);
     }
 

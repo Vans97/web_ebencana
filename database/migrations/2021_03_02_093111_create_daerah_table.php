@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVariableToDaerah extends Migration
+class CreateDaerahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class AddVariableToDaerah extends Migration
      */
     public function up()
     {
-        Schema::table('daerah', function (Blueprint $table) {
+        Schema::create('daerah', function (Blueprint $table) {
+            $table->String('kod')->primary();
+            $table->String('djajahan');
+                $table->foreign('djajahan')->references('kod')->on('jajahan');
+            $table->String('nama');
             $table->String('user_id');
-            
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,6 @@ class AddVariableToDaerah extends Migration
      */
     public function down()
     {
-        Schema::table('daerah', function (Blueprint $table) {
-            $table->dropColumn('user_id');
-            
-        });
+        Schema::dropIfExists('daerah');
     }
 }
