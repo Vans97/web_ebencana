@@ -28,6 +28,7 @@
               <div class="form-group">
               <label for="jajahan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
               <select id="jajahan" name="jajahan" class="form-control @error('jajahan') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($jajahans as $jajahan)
                         <option value="{{ $jajahan->nama }}">{{ $jajahan->nama }}</option>
                          @endforeach

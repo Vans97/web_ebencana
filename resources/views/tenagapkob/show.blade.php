@@ -26,6 +26,7 @@
                   
               <label for="pkob" class="col-md-0 col-form-label text-md-right">{{ __('PKOB') }}</label>
               <select id="pkob" name="pkob" class="form-control @error('pkob') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($pkobc as $pkob)
                         <option value="{{ $pkob->nama }}">{{ $pkob->nama }}</option>
                          @endforeach

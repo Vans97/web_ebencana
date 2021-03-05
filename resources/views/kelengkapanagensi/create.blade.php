@@ -21,6 +21,7 @@
               <div class="form-group">
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Jabatan') }}</label>
               <select id="kjabatan" name="kjabatan" class="form-control @error('kjabatan') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($agensis as $agensi)
                         <option value="{{ $agensi->nama }}">{{ $agensi->nama }}</option>
                          @endforeach
@@ -30,6 +31,7 @@
               <div class="form-group">
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('PKOB') }}</label>
               <select id="kpkob" name="kpkob" class="form-control @error('kpkob') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($pkobs as $pkob)
                         <option value="{{ $pkob->nama }}">{{ $pkob->nama }}</option>
                          @endforeach
@@ -39,6 +41,7 @@
               <div class="form-group">
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Aset') }}</label>
               <select id="kaset" name="kaset" class="form-control @error('kaset') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($asets as $aset)
                         <option value="{{ $aset->nama }}">{{ $aset->nama }}</option>
                          @endforeach

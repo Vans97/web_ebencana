@@ -22,6 +22,7 @@
                   
               <label for="kumpulan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
               <select id="hjajahan" name="hjajahan" class="form-control @error('hjajahan') is-invalid @enderror" required>
+                        <option value="0" disabled="true" selected="true">-Pilih-</option>
                          @foreach($helikopters as $helikopter)
                         <option value="{{ $helikopter->nama }}">{{ $helikopter->nama }}</option>
                          @endforeach

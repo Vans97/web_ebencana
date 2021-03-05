@@ -73,8 +73,18 @@ class KampungController extends Controller
         $kampung->save();
 
        
+
+       
        
         return redirect('kampung/show')->with('success','Data Telah Dimasukkan');
+    }
+
+    public function findDaerahName(Request $request)
+    {
+         $data = Daerah::select('nama','kod')->where('djajahan', $request->id)->take(100)->get();
+        
+        return response()->json($data);
+
     }
 
     /**
@@ -94,9 +104,9 @@ class KampungController extends Controller
             ->get();
     
             
-            $kampungj = Jajahan::all();
+            $kjajahan = Jajahan::all();
             $kampungd = Daerah::all();
-            return view ('kampung.show',['kampungs'=>$kampungs, 'kampungj'=>$kampungj, 'kampungd'=>$kampungd ]);
+            return view ('kampung.show',['kampungs'=>$kampungs, 'kjajahan'=>$kjajahan, 'kampungd'=>$kampungd ]);
         
     }
 

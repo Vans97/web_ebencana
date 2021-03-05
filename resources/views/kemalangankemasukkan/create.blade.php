@@ -78,7 +78,7 @@
               <div class="form-group">
                 <label for="bangsa" class="col-md-0 col-form-label text-md-right">{{ __('Bangsa') }}</label>
                 <select id="bangsa" name="bangsa" class="form-control @error('bangsa') is-invalid @enderror" required>
-                   
+                         <option value="0" disabled="true" selected="true">-Pilih-</option>
                          <option value="Melayu">Melayu</option>
                          <option value="Cina">Cina</option>
                          <option value="India">India</option>
@@ -89,7 +89,7 @@
                 <div class="form-group">
                 <label for="jantina" class="col-md-0 col-form-label text-md-right">{{ __('Jantina') }}</label>
                 <select id="jantina" name="jantina" class="form-control @error('jantina') is-invalid @enderror" required>
-                   
+                         <option value="0" disabled="true" selected="true">-Pilih-</option>
                          <option value="Lelaki">Lelaki</option>
                          <option value="Perempuan">Perempuan</option>
                  </select>

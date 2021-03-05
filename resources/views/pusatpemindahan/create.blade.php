@@ -32,11 +32,8 @@
 
               <div class="form-group"> 
               <label for="jajahan" class="col-md-0 col-form-label text-md-right">{{ __('Daerah') }}</label>
-              <select id="pdaerah" name="pdaerah" class="form-control @error('pdaerah') is-invalid @enderror" onchange="bindKod2()" required>
+              <select id="pdaerah" name="pdaerah" class="pdaerah form-control @error('pdaerah') is-invalid @enderror" onchange="bindKod2()" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
-                         @foreach($pdaerah as $daerah)
-                        <option value="{{ $daerah->kod }}">{{ $daerah->nama }}</option>
-                         @endforeach
               </select>
               </div>
 
@@ -75,6 +72,48 @@
     </div>
 </div>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(document).on('change','.pjajahan',function(){
+            
+            
+            var jajahan_kod=$(this).val();
+            
+            var div=$(this).parent();
+            var op=" ";
+
+            $.ajax({
+				type:'get',
+				url:"{!!URL::to('create')!!}",
+				data:{'id':jajahan_kod},
+				success:function(data){
+					console.log('success');
+
+					console.log(data);
+
+         
+
+          op+='<option value="0" selected disabled>-Pilih-</option>';
+					for(var i=0;i<data.length;i++)
+          {
+					  op+='<option value="'+data[i].kod+'">'+data[i].nama+'</option>';
+          }
+          console.log(op);
+
+          // div.find('.kdaerah').html(" ");
+         $('.pdaerah').html(op);
+				},
+				error:function(){
+
+				}
+			});
+
+
+        });
+    });
+ 
+</script>
 
 <script>
   function bindKod(){

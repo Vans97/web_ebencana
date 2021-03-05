@@ -69,6 +69,14 @@ class PusatPemindahanController extends Controller
         return redirect('pusatpemindahan/show')->with('success','Data Telah Dimasukkan');
     }
 
+    public function findDaerahName(Request $request)
+    {
+         $data = Daerah::select('nama','kod')->where('djajahan', $request->id)->take(100)->get();
+        
+        return response()->json($data);
+
+    }
+
     /**
      * Display the specified resource.
      *
