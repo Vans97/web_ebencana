@@ -46,12 +46,14 @@
               <input type="submit" name="submit" class="btn btn-primary" value="Hantar"/>
 
             </div> -->
-
+            <div class="card-body">
             <table cellpadding="0" cellspacing="0" class="form_theme">
             <tbody>
+
+
             <tr>
-            <td width="106">Jajahan</td>
-            <td width="8">:</td>
+            <th width="100px">Jajahan<font color="red">*</font></th>
+            <th width="10px">:</th>
             <td> 
             <select id="djajahan" name="djajahan" class="form-control @error('djajahan') is-invalid @enderror" onchange="bindKod()" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
@@ -93,6 +95,8 @@
 
             </tbody>
             </table>
+            </div>
+
           </form>
 
          

@@ -526,7 +526,7 @@
               </li>
             </ul>
           </li>
-          <!-- <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -536,7 +536,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/simple.html" class="nav-link">
+                <a href="/fasiliti/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemasukkan Fasiliti Terlibat</p>
                 </a>
@@ -554,7 +554,7 @@
                 </a>
               </li>
             </ul>
-          </li> -->
+          </li>
           <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>

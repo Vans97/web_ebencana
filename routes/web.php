@@ -46,7 +46,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('kampung','KampungController');
     Route::get('/create', 'KampungController@findDaerahName');
     Route::get('/create', 'PusatPemindahanController@findDaerahName');
+    Route::get('/finddaerah', 'FasilitiController@findDaerahName');
+    Route::get('/findname', 'FasilitiController@findPemindahanName');
     Route::resource('pusatpemindahan','PusatPemindahanController');
+    Route::resource('fasiliti','FasilitiController');
 
 
 

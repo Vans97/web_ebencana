@@ -33,18 +33,7 @@ class KampungController extends Controller
     }
 
 
-    // public function findDaerah( Request $request)
-    // {
-    //     $data = DB::table('daerah')->select(DB::raw('djajahan, kod'))
-    //     ->leftJoin('daerah', 'daerah.djajahan', '=', 'jajahan.kod')
-    //     ->where('id',$request->id)
-    //     ->take(100)
-    //     ->get();
-
-
-    //     return response()->json($data);
-    // }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -71,11 +60,7 @@ class KampungController extends Controller
       
         $kampung->user_id =auth()->user()->id;
         $kampung->save();
-
-       
-
-       
-       
+        
         return redirect('kampung/show')->with('success','Data Telah Dimasukkan');
     }
 
@@ -133,7 +118,7 @@ class KampungController extends Controller
     {
         $this->validate($request, [
 
-            // 'kjajahan'=>'required',
+           
             'lkod'=>'required',
             'nama'=>'required',
            
@@ -141,7 +126,6 @@ class KampungController extends Controller
         ]);
 
         $kampung = Kampung::find($id);
-        // $kampung->kjajahan = $request->input('kjajahan');
         $kampung->lkod = $request->input('lkod');
         $kampung->nama = $request->input('nama');
       

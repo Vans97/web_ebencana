@@ -60,20 +60,16 @@
 
             <tr>
             <td colspan="2">&nbsp;</td>
-            <td><input type="submit" name="submit" class="btn btn-small btn-outline-dark" style="background-color:white"  value="Tambah"/>
+            <td><input type="submit" name="submit" class="btn btn-small" style="background-color:white; border:1px solid #555555"  value="Tambah"/>
             <input type="reset" name="reset" class="btn btn-small btn-outline-red" style="background-color:#FF0000" value="Batal"/></td>
-            <!-- <td><input type="text" class="form-control" name="keterangan"/></td> -->
             </tr>
 
             </tbody>
             </table>
             </div>
           </form>
-
-
         </div>
-          <center><a href="/jajahan/show" class= "btn btn-small btn-outline-dark" style="background-color:white">Lihat Semua</a></center>
-
+          <center><button><a href="/jajahan/show" class= "btn btn-small"  style="color:black">Lihat Semua</a></button></center>
       </div>
     </div>
 </div>

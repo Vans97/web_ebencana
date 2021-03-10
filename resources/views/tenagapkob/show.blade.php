@@ -9,7 +9,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Definasi Jajahan</h3>
+            <h3 class="card-title">Tenaga Kerja PKOB</h3>
           </div>
 
           <form role="form" method="POST" action="{{action('TenagaPkobController@store')}}">
