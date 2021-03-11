@@ -4,7 +4,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
 <div class="container-fluid">
     <div class="row">
       <!-- left column -->
@@ -12,10 +11,11 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Kemasukan Bilangan Pasukan Perubatan</h3>
+            <h3 class="card-title">Kemasukan Bilangan Peralatan</h3>
           </div>
-
-          <form role="form" method="POST" action="{{action('BilPasukanController@store')}}">
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form role="form" method="POST" action="{{action('PeralatanPBSMController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
 
@@ -28,9 +28,9 @@
           
               <div class="form-group"> 
               <label for="jajahan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
-              <select id="bjajahan" name="bjajahan" class="bjajahan form-control @error('bjajahan') is-invalid @enderror" required>
+              <select id="peralatan_jajahan" name="peralatan_jajahan" class="peralatan_jajahan form-control @error('peralatan_jajahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
-                         @foreach($bjajahan as $jajahan)
+                         @foreach($peralatan_jajahan as $jajahan)
                         <option value="{{ $jajahan->kod }}">{{ $jajahan->nama }}</option>
                          @endforeach
               </select>
@@ -38,28 +38,29 @@
 
               <div class="form-group"> 
               <label for="daerah" class="col-md-0 col-form-label text-md-right">{{ __('Daerah') }}</label>
-              <select id="bdaerah" name="bdaerah" class="bdaerah form-control @error('bdaerah') is-invalid @enderror" required>
+              <select id="peralatan_daerah" name="peralatan_daerah" class="peralatan_daerah form-control @error('peralatan_daerah') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
               
               <div class="form-group"> 
               <label for="pemindahan" class="col-md-0 col-form-label text-md-right">{{ __('Pusat Pemindahan') }}</label>
-              <select id="bpemindahan" name="bpemindahan" class="bpemindahan form-control @error('bpemindahan') is-invalid @enderror" required>
+              <select id="peralatan_pemindahan" name="peralatan_pemindahan" class="peralatan_pemindahan form-control @error('peralatan_pemindahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
 
               <div class="form-group">
-                <label for="">Bilangan Pasukan Kesihatan</label>
-                <input type="number" class="form-control" name="bil_pasukan_kesihatan" min="0" max="99999"/>
+                <label for="">Jenis Peralatan</label>
+                <input type="text" class="form-control" name="peralatan"/>
               </div>
 
               <div class="form-group">
-                <label for="">Bilangan Pasukan Perubatan</label>
-                <input type="number" class="form-control" name="bil_pasukan_perubatan" min="0" max="99999"/>
+                <label for="">Kuantiti</label>
+                <input type="number" class="form-control" name="kuantiti" min="0" max="99999"/>
               </div>
 
+              
               <div class="form-group">
                 <label for="">Keterangan</label>
                 <input type="text" class="form-control" name="keterangan"/>
@@ -71,44 +72,16 @@
             </div>
           </form>
 
-          <table class="table table-bordered">
-                        <thead class="thead-dark">
-                          <tr>
-                            
-                            <th scope="col">Kemaskini</th>
-                            <th scope="col">Kod</th>
-                            <th scope="col">Bilangan Pasukan Kesihatan</th>
-                            <th scope="col">Bilangan Pasukan Perubatan</th>
-                            <th scope="col">Kemaskini oleh</th>
-                            <th scope="col">Kemaskini pada</th>
-                           
-                          </tr>
-                        </thead>
-                      
-                        <tbody>
-                         @foreach($pasukans as $pasukan)
-                          <tr>
-                              <td><a href="/bilpasukan/{{$pasukan->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$pasukan->bjajahan}}-{{$pasukan->bdaerah}}-{{$pasukan->bpemindahan}}</td>
-                              <td>{{$pasukan->bil_pasukan_kesihatan}}</td>
-                              <td>{{$pasukan->bil_pasukan_perubatan}}</td>
-                              <td>{{$pasukan->name}}</td>
-                              <td>{{$pasukan->updated_at}}</td>
-                        @endforeach
-                             
-                          </tr>
-                          
-                        </tbody>
-            </table>
+          <a href="/peralatanpbsm/show" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a>
+
         </div>
       </div>
     </div>
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		$(document).on('change','.bjajahan',function(){
+		$(document).on('change','.peralatan_jajahan',function(){
             
             
             var jajahan_kod=$(this).val();
@@ -118,7 +91,7 @@
 
             $.ajax({
 				type:'get',
-				url:"{!!URL::to('finddaerahpasukan')!!}",
+				url:"{!!URL::to('finddaerahperalatan')!!}",
 				data:{'id':jajahan_kod},
 				success:function(data){
 					console.log('success');
@@ -135,7 +108,7 @@
           console.log(op);
 
           
-         $('.bdaerah').html(op);
+         $('.peralatan_daerah').html(op);
 				},
 				error:function(){
 
@@ -144,7 +117,7 @@
     });
 
 
-        $(document).on('change','.bdaerah',function () {
+        $(document).on('change','.peralatan_daerah',function () {
 			var lkod=$(this).val();
 
 			var a=$(this).parent();
@@ -152,7 +125,7 @@
 			var op=" ";
 			$.ajax({
 				type:'get',
-				url:"{!!URL::to('findnamepasukan')!!}",
+				url:"{!!URL::to('findnameperalatan')!!}",
 				data:{'id':lkod},
 				dataType:'json',//return data will be json
 				success:function(data){
@@ -167,7 +140,7 @@
           }
          console.log(op);
 
-         $('.bpemindahan').html(op);
+         $('.peralatan_pemindahan').html(op);
 
 
 				},

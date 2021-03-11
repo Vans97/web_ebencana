@@ -65,6 +65,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/finddaerahpenyakit', 'PenyakitDiperiksaController@findDaerahName');
     Route::get('/findnamepenyakit', 'PenyakitDiperiksaController@findPemindahanName');
 
+    Route::resource('peralatanpbsm','PeralatanPBSMController');
+    Route::get('/finddaerahperalatan', 'PeralatanPBSMController@findDaerahName');
+    Route::get('/findnameperalatan', 'PeralatanPBSMController@findPemindahanName');
+
 
 
 

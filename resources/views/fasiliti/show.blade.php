@@ -88,7 +88,7 @@
                           <tr>
                             
                             <th scope="col">Kemaskini</th>
-                            <th scope="col">Kod Kampung</th>
+                            <th scope="col">Kod</th>
                             <th scope="col">Lokasi Pemindahan</th>
                             <th scope="col">Fasiliti Terlibat</th>
                             <th scope="col">Jenis Kerosakan</th>

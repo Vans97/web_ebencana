@@ -86,7 +86,7 @@
                           <tr>
                             
                             <th scope="col">Kemaskini</th>
-                            <th scope="col">Kod Kampung</th>
+                            <th scope="col">Kod</th>
                             <th scope="col">Bilangan Penyakit Berjangkit</th>
                             <th scope="col">Bilangan Penyakit Tidak Berjangkit</th>
                             <th scope="col">Bilangan Kecederaan</th>
