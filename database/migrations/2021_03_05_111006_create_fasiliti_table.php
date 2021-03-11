@@ -20,8 +20,8 @@ class CreateFasilitiTable extends Migration
                 $table->foreign('fjajahan')->references('kod')->on('jajahan');
             $table->String('fdaerah');
                 $table->foreign('fdaerah')->references('kod')->on('daerah');
-            $table->String('fpemindahan');
-                $table->foreign('fpemindahan')->references('lkod')->on('pusat_pemindahan');
+            $table->String('fklinik');
+                $table->foreign('fklinik')->references('kod')->on('klinik');
             $table->String('lokasi');
             $table->String('keterangan');
             $table->String('fasiliti_terlibat');

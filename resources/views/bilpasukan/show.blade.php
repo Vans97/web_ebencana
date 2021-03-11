@@ -12,10 +12,10 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Kemasukan Fasiliti Terlibat</h3>
+            <h3 class="card-title">Kemasukan Bilangan Pasukan Perubatan</h3>
           </div>
 
-          <form role="form" method="POST" action="{{action('FasilitiController@store')}}">
+          <form role="form" method="POST" action="{{action('BilPasukanController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
 
@@ -28,9 +28,9 @@
           
               <div class="form-group"> 
               <label for="jajahan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
-              <select id="fjajahan" name="fjajahan" class="fjajahan form-control @error('fjajahan') is-invalid @enderror" required>
+              <select id="bjajahan" name="bjajahan" class="bjajahan form-control @error('bjajahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
-                         @foreach($fjajahan as $jajahan)
+                         @foreach($bjajahan as $jajahan)
                         <option value="{{ $jajahan->kod }}">{{ $jajahan->nama }}</option>
                          @endforeach
               </select>
@@ -38,21 +38,26 @@
 
               <div class="form-group"> 
               <label for="daerah" class="col-md-0 col-form-label text-md-right">{{ __('Daerah') }}</label>
-              <select id="fdaerah" name="fdaerah" class="fdaerah form-control @error('fdaerah') is-invalid @enderror" required>
+              <select id="bdaerah" name="bdaerah" class="bdaerah form-control @error('bdaerah') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
               
               <div class="form-group"> 
-              <label for="pemindahan" class="col-md-0 col-form-label text-md-right">{{ __('Klinik') }}</label>
-              <select id="fklinik" name="fklinik" class="fklinik form-control @error('fklinik') is-invalid @enderror" required>
+              <label for="pemindahan" class="col-md-0 col-form-label text-md-right">{{ __('Pusat Pemindahan') }}</label>
+              <select id="bpemindahan" name="bpemindahan" class="bpemindahan form-control @error('bpemindahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
 
               <div class="form-group">
-                <label for="">Lokasi Pemindahan</label>
-                <input type="text" class="form-control" name="lokasi"/>
+                <label for="">Bilangan Pasukan Kesihatan</label>
+                <input type="number" class="form-control" name="bil_pasukan_kesihatan" min="0" max="99999"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Bilangan Pasukan Perubatan</label>
+                <input type="number" class="form-control" name="bil_pasukan_perubatan" min="0" max="99999"/>
               </div>
 
               <div class="form-group">
@@ -60,24 +65,7 @@
                 <input type="text" class="form-control" name="keterangan"/>
               </div>
 
-              <div class="form-group">
-                <label for="">Fasiliti Terlibat</label>
-                <input type="text" class="form-control" name="fasiliti_terlibat"/>
-              </div>
-
-              <div class="form-group">
-                <label for="">Jenis Kerosakan</label><br>
-                <input type="radio" id="tenggelam" name="jenis_kerosakan" value="Tenggelam"/>
-                <label for="tenggelam">Tenggelam</label><br>
-
-                <input type="radio" id="operasi" name="jenis_kerosakan" value="Terputus Hubungan & Masih Beroperasi"/>
-                <label for="operasi">Terputus Hubungan & Masih Beroperasi</label><br>
-
-                <input type="radio" id="takoperasi" name="jenis_kerosakan" value="Terputus Hubungan & Tidak Beroperasi"/>
-                <label for="takoperasi">Terputus Hubungan & Tidak Beroperasi</label><br>
-              </div>
-
-                       
+                                 
               <input type="submit" name="submit" class="btn btn-primary" value="Tambah"/>
 
             </div>
@@ -89,9 +77,8 @@
                             
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod Kampung</th>
-                            <th scope="col">Lokasi Pemindahan</th>
-                            <th scope="col">Fasiliti Terlibat</th>
-                            <th scope="col">Jenis Kerosakan</th>
+                            <th scope="col">Bilangan Pasukan Kesihatan</th>
+                            <th scope="col">Bilangan Pasukan Perubatan</th>
                             <th scope="col">Kemaskini oleh</th>
                             <th scope="col">Kemaskini pada</th>
                            
@@ -99,15 +86,14 @@
                         </thead>
                       
                         <tbody>
-                         @foreach($fasilitis as $fasiliti)
+                         @foreach($pasukans as $pasukan)
                           <tr>
-                              <td><a href="/fasiliti/{{$fasiliti->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$fasiliti->fjajahan}}-{{$fasiliti->fdaerah}}-{{$fasiliti->fklinik}}</td>
-                              <td>{{$fasiliti->lokasi}}</td>
-                              <td>{{$fasiliti->fasiliti_terlibat}}</td>
-                              <td>{{$fasiliti->jenis_kerosakan}}</td>
-                              <td>{{$fasiliti->name}}</td>
-                              <td>{{$fasiliti->updated_at}}</td>
+                              <td><a href="/bilpasukan/{{$pasukan->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td>{{$pasukan->bjajahan}}-{{$pasukan->bdaerah}}-{{$pasukan->bpemindahan}}</td>
+                              <td>{{$pasukan->bil_pasukan_kesihatan}}</td>
+                              <td>{{$pasukan->bil_pasukan_perubatan}}</td>
+                              <td>{{$pasukan->name}}</td>
+                              <td>{{$pasukan->updated_at}}</td>
                         @endforeach
                              
                           </tr>
@@ -122,7 +108,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		$(document).on('change','.fjajahan',function(){
+		$(document).on('change','.bjajahan',function(){
             
             
             var jajahan_kod=$(this).val();
@@ -132,7 +118,7 @@
 
             $.ajax({
 				type:'get',
-				url:"{!!URL::to('finddaerah')!!}",
+				url:"{!!URL::to('finddaerahpasukan')!!}",
 				data:{'id':jajahan_kod},
 				success:function(data){
 					console.log('success');
@@ -149,7 +135,7 @@
           console.log(op);
 
           
-         $('.fdaerah').html(op);
+         $('.bdaerah').html(op);
 				},
 				error:function(){
 
@@ -158,7 +144,7 @@
     });
 
 
-        $(document).on('change','.fdaerah',function () {
+        $(document).on('change','.bdaerah',function () {
 			var lkod=$(this).val();
 
 			var a=$(this).parent();
@@ -166,7 +152,7 @@
 			var op=" ";
 			$.ajax({
 				type:'get',
-				url:"{!!URL::to('findname')!!}",
+				url:"{!!URL::to('findnamepasukan')!!}",
 				data:{'id':lkod},
 				dataType:'json',//return data will be json
 				success:function(data){
@@ -177,11 +163,11 @@
           op+='<option value="0" selected disabled>-Pilih-</option>';
 					for(var i=0;i<data.length;i++)
           {
-					  op+='<option value="'+data[i].kod+'">'+data[i].nama+'</option>';
+					  op+='<option value="'+data[i].lkod+'">'+data[i].nama+'</option>';
           }
          console.log(op);
 
-         $('.fklinik').html(op);
+         $('.bpemindahan').html(op);
 
 
 				},

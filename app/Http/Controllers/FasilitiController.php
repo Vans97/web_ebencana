@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Jajahan;
 use App\Daerah;
-use App\PusatPemindahan;
 use App\Fasiliti;
+use App\Klinik;
 use Illuminate\Support\Facades\DB;
 
 class FasilitiController extends Controller
@@ -30,8 +30,8 @@ class FasilitiController extends Controller
     {
         $fjajahan = Jajahan::all();
         $fdaerah = Daerah::all();
-        $fpemindahan = PusatPemindahan::all();
-        return view ('fasiliti.create',['fjajahan'=>$fjajahan, 'fdaerah'=>$fdaerah, 'fpemindahan'=>$fpemindahan]);
+        $fklinik = Klinik::all();
+        return view ('fasiliti.create',['fjajahan'=>$fjajahan, 'fdaerah'=>$fdaerah, 'fklinik'=>$fklinik]);
     }
 
     /**
@@ -48,7 +48,7 @@ class FasilitiController extends Controller
             'tarikh_lapor'=>'required',
             'fjajahan'=>'required',
             'fdaerah'=>'required',
-            'fpemindahan'=>'required',
+            'fklinik'=>'required',
             'lokasi'=>'required',
             'keterangan'=>'required',
             'fasiliti_terlibat'=>'required',
@@ -61,7 +61,7 @@ class FasilitiController extends Controller
         $fasiliti->tarikh_lapor = $request->input('tarikh_lapor');
         $fasiliti->fjajahan = $request->input('fjajahan');
         $fasiliti->fdaerah = $request->input('fdaerah');
-        $fasiliti->fpemindahan = $request->input('fpemindahan');
+        $fasiliti->fklinik = $request->input('fklinik');
         $fasiliti->lokasi = $request->input('lokasi');
         $fasiliti->keterangan = $request->input('keterangan');
         $fasiliti->fasiliti_terlibat = $request->input('fasiliti_terlibat');
@@ -81,7 +81,7 @@ class FasilitiController extends Controller
      */
     public function show($id)
     {
-        $fasilitis = DB::table('fasiliti')->select(DB::raw('fasiliti.id, fasiliti.tarikh_lapor, fasiliti.fjajahan, fasiliti.fdaerah, fasiliti.fpemindahan, fasiliti.lokasi, fasiliti.fasiliti_terlibat, fasiliti.jenis_kerosakan, fasiliti.updated_at, users.name'))
+        $fasilitis = DB::table('fasiliti')->select(DB::raw('fasiliti.id, fasiliti.tarikh_lapor, fasiliti.fjajahan, fasiliti.fdaerah, fasiliti.fklinik, fasiliti.lokasi, fasiliti.fasiliti_terlibat, fasiliti.jenis_kerosakan, fasiliti.updated_at, users.name'))
         ->leftJoin('users', 'users.id', '=', 'fasiliti.user_id')
         // ->leftJoin('daerah', 'daerah.kod', '=', 'kampung.kdaerah')
         // ->leftJoin('jajahan', 'kampung.kjajahan', '=', 'jajahan.kod')
@@ -105,7 +105,7 @@ class FasilitiController extends Controller
 
     public function findPemindahanName(Request $request)
     {
-         $data = PusatPemindahan::select('nama','lkod')->where('pdaerah', $request->id)->take(100)->get();
+         $data = Klinik::select('nama','kod')->where('kdaerah', $request->id)->take(100)->get();
         
         return response()->json($data);
 

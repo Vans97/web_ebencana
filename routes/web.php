@@ -43,13 +43,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('menyelamat','MenyelamatController');
     Route::resource('menyelamatpengesahan','MenyelamatPengesahanController');
     Route::resource('menyelamatlaporan','MenyelamatLaporanController');
+
     Route::resource('kampung','KampungController');
     Route::get('/create', 'KampungController@findDaerahName');
+
+    Route::resource('klinik','KlinikController');
+    Route::get('/findklinik', 'KlinikController@findDaerahName');
+    
+    Route::resource('pusatpemindahan','PusatPemindahanController');
     Route::get('/create', 'PusatPemindahanController@findDaerahName');
+
+    Route::resource('fasiliti','FasilitiController');
     Route::get('/finddaerah', 'FasilitiController@findDaerahName');
     Route::get('/findname', 'FasilitiController@findPemindahanName');
-    Route::resource('pusatpemindahan','PusatPemindahanController');
-    Route::resource('fasiliti','FasilitiController');
+
+    Route::resource('bilpasukan','BilPasukanController');
+    Route::get('/finddaerahpasukan', 'BilPasukanController@findDaerahName');
+    Route::get('/findnamepasukan', 'BilPasukanController@findPemindahanName');
+
+    Route::resource('penyakitdiperiksa','PenyakitDiperiksaController');
+    Route::get('/finddaerahpenyakit', 'PenyakitDiperiksaController@findDaerahName');
+    Route::get('/findnamepenyakit', 'PenyakitDiperiksaController@findPemindahanName');
+
 
 
 

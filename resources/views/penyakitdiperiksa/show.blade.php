@@ -12,10 +12,10 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Kemasukan Fasiliti Terlibat</h3>
+            <h3 class="card-title">Kemasukan Penyakit Diperiksa</h3>
           </div>
 
-          <form role="form" method="POST" action="{{action('FasilitiController@store')}}">
+          <form role="form" method="POST" action="{{action('PenyakitDiperiksaController@store')}}">
             {{csrf_field()}}
             <div class="card-body">
 
@@ -28,9 +28,9 @@
           
               <div class="form-group"> 
               <label for="jajahan" class="col-md-0 col-form-label text-md-right">{{ __('Jajahan') }}</label>
-              <select id="fjajahan" name="fjajahan" class="fjajahan form-control @error('fjajahan') is-invalid @enderror" required>
+              <select id="penyakit_jajahan" name="penyakit_jajahan" class="penyakit_jajahan form-control @error('penyakit_jajahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
-                         @foreach($fjajahan as $jajahan)
+                         @foreach($penyakit_jajahan as $jajahan)
                         <option value="{{ $jajahan->kod }}">{{ $jajahan->nama }}</option>
                          @endforeach
               </select>
@@ -38,21 +38,36 @@
 
               <div class="form-group"> 
               <label for="daerah" class="col-md-0 col-form-label text-md-right">{{ __('Daerah') }}</label>
-              <select id="fdaerah" name="fdaerah" class="fdaerah form-control @error('fdaerah') is-invalid @enderror" required>
+              <select id="penyakit_daerah" name="penyakit_daerah" class="penyakit_daerah form-control @error('penyakit_daerah') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
               
               <div class="form-group"> 
-              <label for="pemindahan" class="col-md-0 col-form-label text-md-right">{{ __('Klinik') }}</label>
-              <select id="fklinik" name="fklinik" class="fklinik form-control @error('fklinik') is-invalid @enderror" required>
+              <label for="pemindahan" class="col-md-0 col-form-label text-md-right">{{ __('Pusat Pemindahan') }}</label>
+              <select id="penyakit_pemindahan" name="penyakit_pemindahan" class="penyakit_pemindahan form-control @error('penyakit_pemindahan') is-invalid @enderror" required>
                     <option value="0" disabled="true" selected="true">-Pilih-</option>
               </select>
               </div>
 
               <div class="form-group">
-                <label for="">Lokasi Pemindahan</label>
-                <input type="text" class="form-control" name="lokasi"/>
+                <label for="">Bilangan Penyakit Berjangkit</label>
+                <input type="number" class="form-control" name="bil_penyakit_berjangkit" min="0" max="99999"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Bilangan Penyakit Tidak Berjangkit</label>
+                <input type="number" class="form-control" name="bil_penyakit_tidak_berjangkit" min="0" max="99999"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Bilangan Kecederaan</label>
+                <input type="number" class="form-control" name="bil_kecederaan" min="0" max="99999"/>
+              </div>
+
+              <div class="form-group">
+                <label for="">Bilangan Kematian</label>
+                <input type="number" class="form-control" name="bil_kematian" min="0" max="99999"/>
               </div>
 
               <div class="form-group">
@@ -60,24 +75,7 @@
                 <input type="text" class="form-control" name="keterangan"/>
               </div>
 
-              <div class="form-group">
-                <label for="">Fasiliti Terlibat</label>
-                <input type="text" class="form-control" name="fasiliti_terlibat"/>
-              </div>
-
-              <div class="form-group">
-                <label for="">Jenis Kerosakan</label><br>
-                <input type="radio" id="tenggelam" name="jenis_kerosakan" value="Tenggelam"/>
-                <label for="tenggelam">Tenggelam</label><br>
-
-                <input type="radio" id="operasi" name="jenis_kerosakan" value="Terputus Hubungan & Masih Beroperasi"/>
-                <label for="operasi">Terputus Hubungan & Masih Beroperasi</label><br>
-
-                <input type="radio" id="takoperasi" name="jenis_kerosakan" value="Terputus Hubungan & Tidak Beroperasi"/>
-                <label for="takoperasi">Terputus Hubungan & Tidak Beroperasi</label><br>
-              </div>
-
-                       
+                                 
               <input type="submit" name="submit" class="btn btn-primary" value="Tambah"/>
 
             </div>
@@ -89,9 +87,10 @@
                             
                             <th scope="col">Kemaskini</th>
                             <th scope="col">Kod Kampung</th>
-                            <th scope="col">Lokasi Pemindahan</th>
-                            <th scope="col">Fasiliti Terlibat</th>
-                            <th scope="col">Jenis Kerosakan</th>
+                            <th scope="col">Bilangan Penyakit Berjangkit</th>
+                            <th scope="col">Bilangan Penyakit Tidak Berjangkit</th>
+                            <th scope="col">Bilangan Kecederaan</th>
+                            <th scope="col">Bilangan Kematian</th>
                             <th scope="col">Kemaskini oleh</th>
                             <th scope="col">Kemaskini pada</th>
                            
@@ -99,15 +98,16 @@
                         </thead>
                       
                         <tbody>
-                         @foreach($fasilitis as $fasiliti)
+                         @foreach($penyakits as $penyakit)
                           <tr>
-                              <td><a href="/fasiliti/{{$fasiliti->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
-                              <td>{{$fasiliti->fjajahan}}-{{$fasiliti->fdaerah}}-{{$fasiliti->fklinik}}</td>
-                              <td>{{$fasiliti->lokasi}}</td>
-                              <td>{{$fasiliti->fasiliti_terlibat}}</td>
-                              <td>{{$fasiliti->jenis_kerosakan}}</td>
-                              <td>{{$fasiliti->name}}</td>
-                              <td>{{$fasiliti->updated_at}}</td>
+                              <td><a href="/penyakitdiperiksa/{{$penyakit->id}}/edit" class= "btn btn-small bg-gradient-primary"><i class="fa fa-edit"></i></a></td>
+                              <td>{{$penyakit->penyakit_jajahan}}-{{$penyakit->penyakit_daerah}}-{{$penyakit->penyakit_pemindahan}}</td>
+                              <td>{{$penyakit->bil_penyakit_berjangkit}}</td>
+                              <td>{{$penyakit->bil_penyakit_tidak_berjangkit}}</td>
+                              <td>{{$penyakit->bil_kecederaan}}</td>
+                              <td>{{$penyakit->bil_kematian}}</td>
+                              <td>{{$penyakit->name}}</td>
+                              <td>{{$penyakit->updated_at}}</td>
                         @endforeach
                              
                           </tr>
@@ -122,7 +122,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 
-		$(document).on('change','.fjajahan',function(){
+		$(document).on('change','.penyakit_jajahan',function(){
             
             
             var jajahan_kod=$(this).val();
@@ -132,7 +132,7 @@
 
             $.ajax({
 				type:'get',
-				url:"{!!URL::to('finddaerah')!!}",
+				url:"{!!URL::to('finddaerahpenyakit')!!}",
 				data:{'id':jajahan_kod},
 				success:function(data){
 					console.log('success');
@@ -149,7 +149,7 @@
           console.log(op);
 
           
-         $('.fdaerah').html(op);
+         $('.penyakit_daerah').html(op);
 				},
 				error:function(){
 
@@ -158,7 +158,7 @@
     });
 
 
-        $(document).on('change','.fdaerah',function () {
+        $(document).on('change','.penyakit_daerah',function () {
 			var lkod=$(this).val();
 
 			var a=$(this).parent();
@@ -166,7 +166,7 @@
 			var op=" ";
 			$.ajax({
 				type:'get',
-				url:"{!!URL::to('findname')!!}",
+				url:"{!!URL::to('findnamepenyakit')!!}",
 				data:{'id':lkod},
 				dataType:'json',//return data will be json
 				success:function(data){
@@ -177,11 +177,11 @@
           op+='<option value="0" selected disabled>-Pilih-</option>';
 					for(var i=0;i<data.length;i++)
           {
-					  op+='<option value="'+data[i].kod+'">'+data[i].nama+'</option>';
+					  op+='<option value="'+data[i].lkod+'">'+data[i].nama+'</option>';
           }
          console.log(op);
 
-         $('.fklinik').html(op);
+         $('.penyakit_pemindahan').html(op);
 
 
 				},

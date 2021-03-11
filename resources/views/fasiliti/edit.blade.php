@@ -34,12 +34,12 @@
               </div>
 
               <div class="form-group">
-                <label for="">Pusat Pemindahan</label>
-                <input type="text" class="form-control" name="fpemindahan"  value="{{$fasiliti->fpemindahan}}" readonly/>
+                <label for="">Klinik</label>
+                <input type="text" class="form-control" name="fklinik"  value="{{$fasiliti->fklinik}}" readonly/>
               </div>
 
               <div class="form-group">
-                <label for="">Lokasi</label>
+                <label for="">Lokasi Pemindahan</label>
                 <input type="text" class="form-control" name="lokasi"  value="{{$fasiliti->lokasi}}" />
               </div>
 

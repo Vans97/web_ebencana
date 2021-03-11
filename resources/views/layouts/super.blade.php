@@ -535,6 +535,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="/klinik/create" class="nav-link">
+                &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
+                &nbsp;&nbsp;&nbsp;<p>Urus Klinik</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="/fasiliti/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
@@ -542,15 +548,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="/bilpasukan/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
-                &nbsp;&nbsp;&nbsp;<p>Lokasi Pemindahan Fasiliti</p>
+                &nbsp;&nbsp;&nbsp;<p>Kemasukkan Bilangan Pasukan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="/penyakitdiperiksa/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
-                &nbsp;&nbsp;&nbsp;<p>Kemasukkan Bilangan Pasukan</p>
+                &nbsp;&nbsp;&nbsp;<p>Kemasukan Penyakit Diperiksa</p>
                 </a>
               </li>
             </ul>
