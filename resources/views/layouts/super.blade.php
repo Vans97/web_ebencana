@@ -577,7 +577,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
+                <a href="/bilpetugas/create" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Kemasukkan Bilangan Petugas</p>
                 </a>
