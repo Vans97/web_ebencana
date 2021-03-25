@@ -41,7 +41,7 @@
             
     
             {{Form::hidden('_method','PUT')}}
-            {{Form::submit('Tambah',['class'=>'btn btn-primary'])}}
+            {{Form::submit('Kemaskini',['class'=>'btn btn-primary'])}}
         </div>
         {!! Form::close() !!}
 

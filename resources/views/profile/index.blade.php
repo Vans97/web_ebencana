@@ -59,7 +59,7 @@
                 </tbody> 
               
               </table>
-              <a href="/profile/{{$user->id}}/edit" class= "btn btn-small bg-gradient-primary" style="margin-left: 11%"><i class="fa fa-edit"></i> Kemaskini Profile</a>
+              <a href="/profile/{{$user->id}}/edit" class= "btn btn-small bg-gradient-primary" style="margin-left: 11%"><i class="fa fa-edit"></i> Kemaskini Profil</a>
   </div>
 </div>
               

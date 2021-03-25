@@ -10,7 +10,7 @@
         <div class="card" style="background-color:#F1F3F9">
         
           <div class="card-header">
-            <h3 class="card-title">Urus Helikopter</h3>
+            <h3 class="card-title">Urus Tapak Helikopter</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -77,13 +77,13 @@
             </tr>
 
             <tr>
-            <th>Latitude<font color="red">*</font></th>
+            <th>Latitud<font color="red">*</font></th>
             <th>:</th>
             <td><input type="text" class="form-control" name="latitude"/></td>
             </tr>
 
             <tr>
-            <th>Longitude<font color="red">*</font></th>
+            <th>Longitud<font color="red">*</font></th>
             <th>:</th>
             <td><input type="text" class="form-control" name="longitude"/></td>
             </tr>
