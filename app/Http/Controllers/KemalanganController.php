@@ -41,7 +41,7 @@ class KemalanganController extends Controller
     {
         $this->validate($request, [
 
-            'kod'=>'required',
+            'kod'=>'required|unique:kemalangan',
             'nama'=>'required',
             'keterangan'=>'required',
            

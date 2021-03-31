@@ -41,7 +41,7 @@ class DaerahController extends Controller
     {
         $this->validate($request, [
 
-            'kod'=>'required',
+            'kod'=>'required|unique:daerah',
             'nama'=>'required',
             'djajahan'=>'required',
            
@@ -73,6 +73,7 @@ class DaerahController extends Controller
         $daerahs = DB::table('daerah')->select(DB::raw('jajahan.nama AS jah, daerah.kod, daerah.nama, daerah.djajahan, daerah.updated_at, users.name'))
         ->leftJoin('users', 'users.id', '=', 'daerah.user_id')
         ->leftJoin('jajahan', 'daerah.djajahan', '=', 'jajahan.kod')
+        ->orderBy('jah')
         ->get();
 
         

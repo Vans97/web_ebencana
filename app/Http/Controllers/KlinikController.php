@@ -44,7 +44,7 @@ class KlinikController extends Controller
 
             'kjajahan'=>'required',
             'kdaerah'=>'required',
-            'kod'=>'required',
+            'kod'=>'required|unique:klinik',
             'nama'=>'required',
             'no_talian'=>'required',
            

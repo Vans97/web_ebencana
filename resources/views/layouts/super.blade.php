@@ -26,19 +26,21 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand" style="background-color:#BFBFBF">
+  <nav class="main-header navbar navbar-expand" style="background-color:white">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="color:black"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link" style="color:black">Laman Utama</a>
       </li>
     </ul>
 
@@ -67,7 +69,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:black">
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -92,12 +94,12 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4" style="width:auto">
     <!-- Brand Logo -->
     <a href="/home" class="brand-link">
       <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" -->
            <!-- style="opacity: .8"> -->
-      <span class="brand-text font-weight-light" >eBencana</span>
+      <center><span class="brand-text font-weight-dark">eBencana</span></center>
     </a>
 
     <!-- Sidebar -->
@@ -270,7 +272,7 @@
           </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-car"></i>
               <p>
                 Kemalangan
                 <i class="fas fa-angle-left right"></i>
@@ -405,7 +407,7 @@
           </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-group"></i>
               <p>
                 Pemindahan Mangsa
                 <i class="fas fa-angle-left right"></i>
@@ -424,7 +426,7 @@
                 &nbsp;&nbsp;&nbsp;<p>Urus Pusat Pemindahan</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="pages/tables/data.html" class="nav-link">
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Tarikh Buka Pusat Pemindahan</p>
@@ -453,7 +455,7 @@
                 &nbsp;&nbsp;<i class="far fa-circle fa-xs"></i>
                 &nbsp;&nbsp;&nbsp;<p>Laporan Teliti Pemindahan</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <!-- <li class="nav-item has-treeview">
@@ -499,7 +501,7 @@
           </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-life-ring"></i>
               <p>
                 Gerakan Menyelamat
                 <i class="fas fa-angle-left right"></i>
@@ -528,7 +530,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-hospital"></i>
               <p>
                 Kesihatan
                 <i class="fas fa-angle-left right"></i>
@@ -563,7 +565,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-moon"></i>
               <p>
                 PBSM
                 <i class="fas fa-angle-left right"></i>

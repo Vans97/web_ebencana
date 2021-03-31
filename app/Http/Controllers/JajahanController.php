@@ -40,7 +40,7 @@ class JajahanController extends Controller
     {
         $this->validate($request, [
 
-            'kod'=>'required',
+            'kod'=>'required|unique:jajahan',
             'nama'=>'required',
             'keterangan'=>'required',
            
@@ -73,6 +73,8 @@ class JajahanController extends Controller
 
         $jajahans = DB::table('jajahan')->select(DB::raw('jajahan.kod, jajahan.nama, jajahan.keterangan, jajahan.updated_at, users.name'))
             ->leftJoin('users', 'users.id', '=', 'jajahan.user_id')
+            ->orderBy('jajahan.nama')
+            // ->paginate(5);
             ->get();
         return view ('jajahan.show')->with('jajahans', $jajahans);
 

@@ -82,9 +82,10 @@
                 <label>Pengesahan</label>
             <select id="pengesahan" name="pengesahan" class="form-control @error('pengesahan') is-invalid @enderror" required>
                    <option value="0" disabled="true" selected="true">-Pilih-</option>
-                   <option value="Pending">Pending</option>
-                   <option value="Sah">Sah</option>
-                   <option value="Batal">Batal</option>
+                   <option value="Diproses" {{($menyelamat->pengesahan === 'Diproses') ? 'Selected' : ''}}>Diproses</option>
+                   <option value="Sah" {{($menyelamat->pengesahan === 'Sah') ? 'Selected' : ''}}>Sah</option>
+                   <option value="Batal" {{($menyelamat->pengesahan === 'Batal') ? 'Selected' : ''}}>Batal</option>
+                   
                   
            </select>
            </div>

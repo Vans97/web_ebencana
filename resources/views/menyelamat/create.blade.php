@@ -82,7 +82,7 @@
 
               <div class="form-group">
                 
-                <input type="text" class="form-control" name="pengesahan" value="Pending" readonly hidden/>
+                <input type="text" class="form-control" name="pengesahan" value="Diproses" readonly hidden/>
               </div>
 
              

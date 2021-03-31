@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Menyelamat;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 class MenyelamatLaporanController extends Controller
@@ -18,6 +19,15 @@ class MenyelamatLaporanController extends Controller
     {
         $menyelamats = Menyelamat::all();
         return view('menyelamatlaporan.index',['menyelamats'=>$menyelamats]);
+    }
+
+    public function laporanMenyelamat($id) 
+    {
+        
+        $menyelamat = Menyelamat::find($id);
+        $pdf = PDF::loadView('menyelamatlaporan.pdf', compact('menyelamat'));
+        
+        return $pdf->download('laporan.pdf');
     }
 
     /**

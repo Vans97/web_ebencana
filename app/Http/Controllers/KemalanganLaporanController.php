@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KemalanganKemasukkan;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Response;   
 
 class KemalanganLaporanController extends Controller
 {
@@ -17,6 +19,16 @@ class KemalanganLaporanController extends Controller
     {
         $kemalangank = KemalanganKemasukkan::all();
         return view('kemalanganlaporan.index',['kemalangank'=>$kemalangank]);
+    }
+
+
+    public function downloadPDF($id) 
+    {
+        
+        $kemalangan = KemalanganKemasukkan::find($id);
+        $pdf = PDF::loadView('kemalanganlaporan.pdf', compact('kemalangan'));
+        
+        return $pdf->download('laporan.pdf');
     }
 
     /**
@@ -53,9 +65,10 @@ class KemalanganLaporanController extends Controller
         ->where('kemalangankemasukkan.id',$id)
         ->get();
 
-        // dd($kemalangans);
+        
 
-    return view ('kemalanganlaporan.show')->with(['kemalangans'=> $kemalangans]);
+    return view ('kemalanganlapora  n.show')->with(['kemalangans'=> $kemalangans]);
+
     }
 
     /**

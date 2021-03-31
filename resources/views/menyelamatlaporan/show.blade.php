@@ -28,7 +28,7 @@
                             <th scope="col">Jumlah</th>
                             <th scope="col">Kemas oleh</th>
                             <th scope="col">Kemakini Pada</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Pengesahan</th>
                            
                           </tr>
                         </thead>

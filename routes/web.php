@@ -77,5 +77,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-    Route::get('/kemalanganlaporan/pdf', 'KemalanganLaporanController@pdf');
+    Route::get('/downloadPDF/{id}','KemalanganLaporanController@downloadPDF');
+    Route::get('/laporanMenyelamat/{id}','MenyelamatLaporanController@laporanMenyelamat');
 });

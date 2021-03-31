@@ -47,7 +47,7 @@ class PusatPemindahanController extends Controller
 
             'pjajahan'=>'required',
             'pdaerah'=>'required',
-            'lkod'=>'required',
+            'lkod'=>'required|unique:pusat_pemindahan',
             'nama'=>'required',
             'had'=>'required',
             'keterangan'=>'required',

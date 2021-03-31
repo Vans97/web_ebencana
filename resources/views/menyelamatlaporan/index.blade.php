@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
 
 <div class="container-fluid">
@@ -20,11 +19,13 @@
                         <thead class="thead-dark">
                           <tr>
                             
-                            <th scope="col">Kemaskini</th>
+                            <th scope="col">Muat Turun Laporan</th>
+                            <th scope="col">Tarikh</th>
                             <th scope="col">Jajahan</th>
-                            <th scope="col">Lokasi</th>
+                            <th scope="col">Lokasi Berlaku</th>
                             <th scope="col">Tempat Pemindahan </th>
-                            <th scope="col">Jumlah</th>
+                            <th scope="col">Jumlah Mangsa</th>
+                            <th scope="col">Pengesahan</th>
                             
                            
                           </tr>
@@ -33,11 +34,13 @@
                         <tbody>
                          @foreach($menyelamats as $menyelamat)
                           <tr>
-                              <td><a href="/menyelamatlaporan/{{$menyelamat->id}}" class= "btn btn-small bg-gradient-primary">Butiran</i></a></td> 
+                          <td><a href="{{action('MenyelamatLaporanController@laporanMenyelamat', $menyelamat->id)}}" class= "btn btn-small" style="background-color:#dd3636; border:1px solid #555555"><i class="fa fa-file-pdf-o"></i></a></td>
+                              <td>{{$menyelamat->tarikh}}</td>
                               <td>{{$menyelamat->jajahan}}</td>
-                              <td>{{$menyelamat->lokasi}}</td>
-                              <td>{{$menyelamat->tempat_pemindahan}}</td> 
+                              <td>{{$menyelamat->lokasi}}</td> 
+                              <td>{{$menyelamat->tempat_pemindahan}}</td>
                               <td>{{$menyelamat->total}}</td>
+                              <td>{{$menyelamat->pengesahan}}</td>
                              
 
                               
