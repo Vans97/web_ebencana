@@ -10,7 +10,7 @@
         <!-- general form elements -->
        
           <div class="card-header" style="background-color:#c11a1a">
-            <h3 class="card-title" style="color:white; width:max-content">Urus Kemasukkan Kes Kemalangan</h3>
+            <h3 class="card-title" style="color:white; width:max-content">Urus Kemasukkan Kess Kemalangan</h3>
           </div><br>
           
 
